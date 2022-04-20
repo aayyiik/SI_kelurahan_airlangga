@@ -24,18 +24,28 @@
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
+                                    @php $no = 1; @endphp
                                     @foreach ($jabatan as $item)
                                     <tbody>
                                         <tr>
-                                            <td>Tiger Nixon</td>
+                                            <td>{{ $no++ }}</td>
                                             <td>{{ $item->nama_jabatan }}</td>
+                                            <td>
+                                                <a href="/kota/edit" class="btn btn-warning rounded-pill">
+                                                    Edit
+                                                </a>
+                                               
+                                            </td>
                                         </tr>
 
                                     </tbody>
+                                    @endforeach
                                 </table>
                             </div>
                         </div>
                     </div> 
+                </main>
+                
          
 
       
