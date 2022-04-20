@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\JabatanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,4 +23,7 @@ Route::get('/', function () {
 Route::get('/index',[DashboardController::class,'index']);
 Route::get('/login',[AuthController::class,'login']);
 
+
+
+Route::get('/jabatan',[JabatanController::class,'index']);
 
