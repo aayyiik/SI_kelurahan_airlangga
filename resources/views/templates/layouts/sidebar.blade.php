@@ -23,7 +23,19 @@
             <a class="nav-link" href="/jabatan">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Jabatan</span></a>
-        </li>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/kategori">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Kategori</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/status">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Status</span></a>
+            </li>
 
           <!-- Divider -->
           <hr class="sidebar-divider">
