@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\JabatanController;
@@ -35,6 +35,8 @@ Route::get('/kategori',[KategoriController::class,'index']);
 
 //status
 Route::get('/status',[StatusController::class,'index']);
+
+Route::get('/agenda',[AgendaController::class,'index']);
 
 
 
