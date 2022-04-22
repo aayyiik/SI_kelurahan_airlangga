@@ -24,6 +24,11 @@
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Jabatan</span></a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/kelurahan">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Kelurahan</span></a>
+
 
             <li class="nav-item">
                 <a class="nav-link" href="/agenda">

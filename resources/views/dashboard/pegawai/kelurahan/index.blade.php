@@ -22,14 +22,18 @@
                                             <th>id_kelurahan</th>
                                             <th>Nama_kelurahan</th>
                                             <th>alamat</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     @php $no = 1; @endphp
                                     @foreach ($kelurahan as $item)
                                     <tbody>
                                         <tr>
-                                            <td>{{ $no++ }}</td>
-                                            <td>{{ $item->Nama_kelurahan }}</td>
+                                            <td>{{ $item->id_kelurahan }}</td>
+                                            <td>{{ $item->nama_kelurahan }}</td>
+                                            <td>{{ $item->alamat }}</td>
+
+
                                             <td>
                                                 <a href="/kota/edit" class="btn btn-warning rounded-pill">
                                                     Edit

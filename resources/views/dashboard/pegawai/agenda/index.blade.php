@@ -20,9 +20,9 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama Kegiatan</th>
                                             <th>Deskripsi kegiatan</th>
                                             <th>Bukti Kegiatan</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     @php $no = 1; @endphp
@@ -31,6 +31,7 @@
                                         <tr>
                                             <td>{{ $no++ }}</td>
                                             <td>{{ $item->aktivitas }}</td>
+                                            <td>{{ $item->gambar }}</td>
                                             <td>
                                                 <a href="/kota/edit" class="btn btn-warning rounded-pill">
                                                     Edit
