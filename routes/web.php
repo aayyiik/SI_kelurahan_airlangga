@@ -1,5 +1,12 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\JabatanController;
+use App\Http\Controllers\PegawaiController;
+use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\KegiatanController;
+use App\Http\Controllers\StatusController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +23,22 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/index',[DashboardController::class,'index']);
+Route::get('/login',[AuthController::class,'login']);
+
+
+//Jabatan
+Route::get('/jabatan',[JabatanController::class,'index']);
+
+//Kategori
+Route::get('/kategori',[KategoriController::class,'index']);
+
+//status
+Route::get('/status',[StatusController::class,'index']);
+
+//Pegawai 
+Route::get('/daftar_pegawai',[PegawaiController::class,'index']);
+
+
+
