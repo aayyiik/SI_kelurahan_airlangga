@@ -1,5 +1,5 @@
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav bg-gradient-danger sidebar sidebar-dark accordion" id="accordionSidebar">
 
           <!-- Sidebar - Brand -->
           <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -17,49 +17,49 @@
             <li class="nav-item">
               <a class="nav-link" href="/index">
                   <i class="fas fa-fw fa-tachometer-alt"></i>
-                  <span>Dashboard</span></a>
+                  <span><strong>Dashboard</strong></span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="/daftar_pegawai">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Data Pegawai</span></a>
+                    <span><strong>Data Pegawai</strong></span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="/jabatan">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Data Jabatan</span></a>
+                    <span><strong>Daftar Jabatan</strong></span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="/kategori">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Data Kategori</span></a>
+                    <span><strong>Daftar kategori</strong></span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="/status">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Lihat Status</span></a>
+                    <span><strong>List Status</strong></span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="/agenda">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Daftar Agenda</span></a>
+                    <span><strong>Masukkan Agenda</strong></span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="/jadwal_rapat">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Jadwal Rapat</span></a>
+                    <span><strong>Jadwal Rapat</strong></span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="/daftar_kegiatan">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Daftar Kegiatan</span></a>
+                    <span><strong>Pengajuan Kegiatan</strong></span></a>
             </li>
 
 

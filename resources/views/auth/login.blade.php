@@ -37,9 +37,16 @@
                         <!-- Nested Row within Card Body -->
 
                                 <div class="p-5">
-                                    <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
-                                    </div>
+                                    
+                                    <div class="d-flex justify-content-center py-1">
+                                   
+                                            <img src="{{ asset('assets/img/logo.png') }}" alt="logo.png" width="51" height="66">
+                                        
+                                        
+                                      </div>
+                                      <h5 class="card-title text-center pb-0 fs-4">KELURAHAN AIRLANGGA</h5>
+                                    
+
                                     <form class="user">
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user"
