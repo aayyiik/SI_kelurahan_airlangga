@@ -66,6 +66,10 @@ class JabatanSeeder extends Seeder
             'nama_jabatan' => 'Staff Kasi Kesejahteraan Rakyat dan Perekonomian Pengatur Tingkat I'
         ]);
 
+        Jabatan::create([
+            'nama_jabatan' => 'admin'
+        ]);
+
         
     }
 }

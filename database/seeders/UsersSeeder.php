@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class UsersSeeder extends Seeder
@@ -16,24 +17,35 @@ class UsersSeeder extends Seeder
         $user = [
             [
                 'nik'=>'3578276501020001',
-                'email'=>'rafikiki@gmail.com',
-                'password'=> bcrypt('rahasia'),
-                'tgl_lahir'=>'2006-04-25',
-                'role'=>'warga'
+                'id_jabatan'=> '2237',
+                'id_kelurahan'=> '1',
+                'nama'=>'Sugeng',
+                'alamat'=>'Jl. dharmawangsa No 09',
+                'no_telp'=> '085853427882',
+                'email'=> 'sugeng@gmail.com',
+                'password'=> bcrypt('lurah123'),
+
             ],
             [
-                'nama'=>'Ari Lathifatul Chusna',
-                'email'=>'ariniarki@gmail.com',
-                'password'=> bcrypt('rahasia'),
-                'tgl_lahir'=>'2002-01-25',
-                'role'=>'admin'
+                'nik'=>'35782742543278881',
+                'id_jabatan'=> '2242',
+                'id_kelurahan'=> '1',
+                'nama'=>'Djayadi',
+                'alamat'=>'Jl. dharmawangsa No 08',
+                'no_telp'=> '085853427222',
+                'email'=> 'djay@gmail.com',
+                'password'=> bcrypt('staff123'),
+                
             ],
             [
-                'nama'=>'Ahmat Badrun Niam',
-                'email'=>'ahmatbadrun@gmail.com',
-                'password'=> bcrypt('rahasia'),
-                'tgl_lahir'=>'1997-10-10',
-                'role'=>'petugas'
+                'nik'=>'3578274254327663',
+                'id_jabatan'=> '2239',
+                'id_kelurahan'=> '1',
+                'nama'=>'Apri',
+                'alamat'=>'Jl. dharmawangsa No 04',
+                'no_telp'=> '0858534255342',
+                'email'=> 'apri@gmail.com',
+                'password'=> bcrypt('pegawai123'),
             ],
         ];
         foreach ($user as $key => $value) {
