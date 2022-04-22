@@ -6,6 +6,8 @@ use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\KegiatanController;
+use App\Http\Controllers\RapatController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\StatusController;
 use Illuminate\Support\Facades\Route;
 
@@ -38,7 +40,13 @@ Route::get('/kategori',[KategoriController::class,'index']);
 Route::get('/status',[StatusController::class,'index']);
 
 //Pegawai 
-Route::get('/daftar_pegawai',[PegawaiController::class,'index']);
+Route::get('/daftar_pegawai',[UserController::class,'index']);
 
+
+//Rapat
+Route::get('/jadwal_rapat',[RapatController::class,'index']);
+
+//kegiatan
+Route::get('/daftar_kegiatan',[KegiatanController::class,'index']);
 
 

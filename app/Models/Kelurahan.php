@@ -10,8 +10,12 @@ class Kelurahan extends Model
     use HasFactory;
 
     protected $table = 'kelurahan';
-
+    protected $primaryKey = 'id_kelurahan';
     protected $fillable = [
         'nama_kelurahan','alamat'
     ];
+
+    public function user() {
+        return $this->hasMany(User::class, 'nik');
+    }
 }

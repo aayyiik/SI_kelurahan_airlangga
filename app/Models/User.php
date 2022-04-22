@@ -16,6 +16,9 @@ class User extends Authenticatable
      *
      * @var array
      */
+
+     protected $table = 'users';
+     protected $primaryKey = 'nik';
     protected $fillable = [
         'nik',
         'id_jabatan',
@@ -45,4 +48,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function jabatan() {
+        return $this->belongsTo(Jabatan::class, 'id_jabatan');
+    }
+
+    public function kelurahan() {
+        return $this->belongsTo(Kelurahan::class, 'id_kelurahan');
+    }
 }

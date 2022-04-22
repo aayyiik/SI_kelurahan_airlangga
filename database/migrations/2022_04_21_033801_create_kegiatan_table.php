@@ -26,6 +26,7 @@ class CreateKegiatanTable extends Migration
             $table->string('tempat')->nullable();
             $table->string('deskripsi');
             $table->string('gambar')->nullable();
+            $table->integer('validasi')->nullable();
             $table->timestamps();
         });
     }
