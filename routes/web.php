@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\JabatanController;
+use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\KegiatanController;
@@ -37,8 +38,11 @@ Route::get('/kategori',[KategoriController::class,'index']);
 //status
 Route::get('/status',[StatusController::class,'index']);
 
-//Pegawai 
+//Pegawai
 Route::get('/daftar_pegawai',[PegawaiController::class,'index']);
+
+//agenda
+Route::get('/agenda',[AgendaController::class,'index']);
 
 
 
