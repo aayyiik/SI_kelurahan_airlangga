@@ -32,12 +32,24 @@ Route::get('/login',[AuthController::class,'login']);
 
 //Jabatan
 Route::get('/jabatan',[JabatanController::class,'index']);
+Route::post('jabatan/create',[JabatanController::class,'create']);
+Route::get('jabatan/{id_jabatan}/edit',[JabatanController::class,'edit']);
+Route::post('jabatan/{id_jabatan}/update',[JabatanController::class,'update']);
+Route::get('jabatan/{id_jabatan}/delete',[JabatanController::class,'delete']);
 
 //Kategori
 Route::get('/kategori',[KategoriController::class,'index']);
+Route::post('kategori/create',[KategoriController::class,'create']);
+Route::get('kategori/{id_kategori}/edit',[KategoriController::class,'edit']);
+Route::post('kategori/{id_kategori}/update',[KategoriController::class,'update']);
+Route::get('kategori/{id_kategori}/delete',[KategoriController::class,'delete']);
 
 //status
 Route::get('/status',[StatusController::class,'index']);
+Route::post('status/create',[StatusController::class,'create']);
+Route::get('status/{id_status}/edit',[StatusController::class,'edit']);
+Route::post('status/{id_status}/update',[StatusController::class,'update']);
+Route::get('status/{id_status}/delete',[StatusController::class,'delete']);
 
 //Pegawai 
 Route::get('/daftar_pegawai',[UserController::class,'index']);
@@ -45,8 +57,16 @@ Route::get('/daftar_pegawai',[UserController::class,'index']);
 
 //Rapat
 Route::get('/jadwal_rapat',[RapatController::class,'index']);
+Route::get('/jadwal_rapat',[RapatController::class,'index']);
+Route::post('jadwal_rapat/create',[RapatController::class,'create']);
+Route::get('jadwal_rapat/{id_rapat}/edit',[RapatController::class,'edit']);
+Route::post('jadwal_rapat/{id_rapat}/update',[RapatController::class,'update']);
+Route::get('jadwal_rapat/{id_rapat}/delete',[RapatController::class,'delete']);
 
 //kegiatan
 Route::get('/daftar_kegiatan',[KegiatanController::class,'index']);
-
+Route::post('daftar_kegiatan/create',[KegiatanController::class,'create']);
+Route::get('daftar_kegiatan/{id_kegiatan}/edit',[KegiatanController::class,'edit']);
+Route::post('daftar_kegiatan/{id_kegiatan}/update',[KegiatanController::class,'update']);
+Route::get('daftar_kegiatan/{id_kegiatan}/delete',[KegiatanController::class,'delete']);
 
