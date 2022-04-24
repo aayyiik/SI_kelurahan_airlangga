@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->unsignedBigInteger('id_kelurahan');
             $table->foreign('id_kelurahan')->references('id_kelurahan')->on('kelurahan');
             $table->string('nama');
+            $table->integer('jenis_kelamin');
             $table->string('alamat');
             $table->string('no_telp');
             $table->string('email');

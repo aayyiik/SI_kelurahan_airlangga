@@ -22,11 +22,12 @@ class CreateKegiatanTable extends Migration
             $table->unsignedBigInteger('id_status');
             $table->foreign('id_status')->references('id_status')->on('status');
             $table->string('nama_kegiatan');
-            $table->dateTime('tanggal');
+            $table->dateTime('tanggal_mulai');
+            $table->dateTime('tanggal_selesai');
             $table->string('tempat')->nullable();
             $table->string('deskripsi');
             $table->string('gambar')->nullable();
-            $table->integer('validasi')->nullable();
+            $table->integer('validasi')->default('0')->nullable();
             $table->timestamps();
         });
     }

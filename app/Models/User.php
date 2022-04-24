@@ -24,6 +24,7 @@ class User extends Authenticatable
         'id_jabatan',
         'id_kelurahan',
         'nama',
+        'jenis_kelamin',
         'alamat',
         'no_telp',
         'email', 

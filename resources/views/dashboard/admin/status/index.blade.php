@@ -78,15 +78,15 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title" id="myLargeModalLabel">Tambah Daftar Jabatan</h4>
+        <h4 class="modal-title" id="myLargeModalLabel">Tambah Daftar Status</h4>
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
       </div>
 
       <div class="modal-body">
-        <form action="/jabatan/create" method="POST">
+        <form action="/status/create" method="POST">
           @csrf
             <div class="form-group row">
-              <label class="col-sm-12 col-md-4 col-form-label">Nama Jabatan</label>
+              <label class="col-sm-12 col-md-4 col-form-label">Nama Status</label>
               <div class="col-sm-12 col-md-12">
                 <input class="form-control" type="text" name="nama_status" placeholder="Masukkan Status">
               </div>

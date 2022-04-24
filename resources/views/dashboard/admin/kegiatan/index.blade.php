@@ -37,6 +37,9 @@
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Data kegiatan Acara Kelurahan Airlangga</h6>
+            <a href="" class="btn btn-primary btn-sm float-right" data-toggle="modal" data-target="#Medium-modal" type="button">
+                Tambah Data
+            </a>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -45,7 +48,8 @@
                         <tr>
                             <th>No</th>
                             <th>Nama Kegiatan</th>
-                            <th>Tanggal</th>
+                            <th>Tanggal Mulai</th>
+                            <th>Tanggal Selesai</th>
                             <th>Tempat</th>
                             <th>Kategori</th>
                             <th>Status</th>  
@@ -60,7 +64,8 @@
                         <tr>
                             <td>{{ $no++ }}</td>
                             <td>{{ $item->nama_kegiatan }}</td>
-                            <td>{{ $item->tanggal}}</td>
+                            <td>{{ $item->tanggal_mulai}}</td>
+                            <td>{{ $item->tanggal_selesai }}</td>
                             <td>{{ $item->tempat }}</td>
                             <td>{{ $item->kategori->jenis_kategori }}</td>
                             <td>{{ $item->status->nama_status }}</td>
@@ -69,12 +74,12 @@
                                 @if ($item->validasi == 1)
                                 <td>
                                 <a href="" class="btn-sm btn-warning" data-toggle="modal" data-target="#confirmation-modal" type="button">
-							        Validasi
+							        Beri validasi
                                 </a> 
                                 </td>
                             @else
                                 <td>
-                                    <button type="button" class="btn-sm btn-danger">ditolak</button>
+                                    <span class="badge badge-pill badge-danger" >Ditolak</span>
                                 </td>
                             @endif
                                 
@@ -112,4 +117,79 @@
 </div>
 
 
+<!-- modal -->
+
+<div class="modal fade" id="Medium-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="myLargeModalLabel">Tambah Daftar Rapat Baru</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        </div>
+  
+        <div class="modal-body">
+          <form action="/rapat/create" method="POST">
+            @csrf
+              <div class="form-group row">
+                <label class="col-sm-12 col-md-4 col-form-label">Nama Rapat</label>
+                <div class="col-sm-12 col-md-12">
+                  <input class="form-control" type="text" name="nama_rapat" placeholder="Masukkan Nama Jabatan">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-sm-12 col-md-4 col-form-label">Nama Admin</label>
+                <div class="col-sm-12 col-md-12">
+                  <input class="form-control" type="text" name="nik_admin" placeholder="Masukkan Nama Jabatan">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-sm-12 col-md-4 col-form-label">Tanggal Mulai</label>
+                <div class="col-sm-12 col-md-12">
+                  <input class="form-control" type="datetime-local" name="tanggal_mulai" placeholder="Masukkan Nama Jabatan">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-sm-12 col-md-4 col-form-label">Tanggal Selesai</label>
+                <div class="col-sm-12 col-md-12">
+                  <input class="form-control" type="text" name="tanggal_selesai" placeholder="Masukkan Nama Jabatan">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-sm-12 col-md-4 col-form-label">Kategori</label>
+                <div class="col-sm-12 col-md-12">
+                  <input class="form-control" type="text" name="id_kategori" placeholder="Masukkan Nama Jabatan">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-sm-12 col-md-4 col-form-label">Tempat</label>
+                <div class="col-sm-12 col-md-12">
+                  <input class="form-control" type="text" name="nama_jabatan" placeholder="Masukkan Nama Jabatan">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-sm-12 col-md-4 col-form-label">Status</label>
+                <div class="col-sm-12 col-md-12">
+                  <input class="form-control" type="text" name="id_status" placeholder="Masukkan Nama Jabatan">
+                </div>
+              </div>
+
+              
+
+              
+            </div>
+          
+  
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Tambah</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
 @endsection

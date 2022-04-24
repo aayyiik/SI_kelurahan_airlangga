@@ -20,7 +20,8 @@ class CreateRapatTable extends Migration
             $table->unsignedBigInteger('id_kategori');
             $table->foreign('id_kategori')->references('id_kategori')->on('kategori');
             $table->string('nama_rapat');
-            $table->dateTime('tanggal');
+            $table->dateTime('tanggal_mulai');
+            $table->dateTime('tanggal_selesai');
             $table->string('tempat')->nullable();
             $table->unsignedBigInteger('id_status');
             $table->foreign('id_status')->references('id_status')->on('status');

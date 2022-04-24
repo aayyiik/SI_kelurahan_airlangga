@@ -15,7 +15,8 @@ class Rapat extends Model
         'nik_admin',
         'nama_rapat',
         'id_kategori',
-        'tanggal',
+        'tanggal_mulai',
+        'tanggal_selesai',
         'tempat',
         'id_status'
     ];

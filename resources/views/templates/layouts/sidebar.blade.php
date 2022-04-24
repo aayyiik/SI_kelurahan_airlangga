@@ -8,39 +8,43 @@
                   {{-- <i class="fas fa-laugh-wink"></i> --}}
               </div>
               <div class="sidebar-brand-text mx-3">Kelurahan Airlangga </div>
+              
           </a>
 
+    
           <!-- Divider -->
           <hr class="sidebar-divider my-0">
+
+          
 
           <!-- Nav Item - Dashboard -->
             <li class="nav-item">
               <a class="nav-link" href="/index">
-                  <i class="fas fa-fw fa-tachometer-alt"></i>
+                <i class="icon-copy fa fa-home"></i>
                   <span><strong>Dashboard</strong></span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="/daftar_pegawai">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="icon-copy fa fa-address-book"></i>
                     <span><strong>Data Pegawai</strong></span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="/jabatan">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="icon-copy fa fa-sitemap"></i>
                     <span><strong>Daftar Jabatan</strong></span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="/kategori">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span><strong>Daftar kategori</strong></span></a>
+                    <i class="icon-copy fa fa-th-large"></i>
+                    <span><strong>Daftar Kategori Acara</strong></span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="/status">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="icon-copy fa fa-link"></i>
                     <span><strong>List Status</strong></span></a>
             </li>
 
@@ -52,13 +56,13 @@
 
             <li class="nav-item">
                 <a class="nav-link" href="/jadwal_rapat">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="icon-copy fa fa-users"></i>
                     <span><strong>Jadwal Rapat</strong></span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="/daftar_kegiatan">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="icon-copy fa fa-map"></i>
                     <span><strong>Pengajuan Kegiatan</strong></span></a>
             </li>
 
@@ -68,7 +72,7 @@
 
           <!-- Heading -->
           <div class="sidebar-heading">
-              Interface
+              Halaman Utama
           </div>
 
           <!-- Nav Item - Pages Collapse Menu -->
@@ -76,7 +80,7 @@
               <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                   aria-expanded="true" aria-controls="collapseTwo">
                   <i class="fas fa-fw fa-cog"></i>
-                  <span>Components</span>
+                  <span>Landing Page</span>
               </a>
               <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                   <div class="bg-white py-2 collapse-inner rounded">
