@@ -91,7 +91,7 @@
         </div>
   
         <div class="modal-body">
-          <form action="/rapat/create" method="POST">
+          <form action="jadwal_rapat/create" method="POST">
             @csrf
               <div class="form-group row">
                 <label class="col-sm-12 col-md-4 col-form-label">Nama Rapat</label>
@@ -117,37 +117,43 @@
               <div class="form-group row">
                 <label class="col-sm-12 col-md-4 col-form-label">Tanggal Selesai</label>
                 <div class="col-sm-12 col-md-12">
-                  <input class="form-control" type="text" name="tanggal_selesai" placeholder="Masukkan Nama Jabatan">
+                  <input class="form-control" type="datetime-local" name="tanggal_selesai" placeholder="Masukkan Nama Jabatan">
                 </div>
               </div>
 
+              
               <div class="form-group row">
                 <label class="col-sm-12 col-md-4 col-form-label">Kategori</label>
                 <div class="col-sm-12 col-md-12">
-                  <input class="form-control" type="text" name="id_kategori" placeholder="Masukkan Nama Jabatan">
-                </div>
-              </div>
+                <select name="id_kategori" class="form-control">
+                      <option value="">- Pilih -</option>
+                    @foreach ($kategori as $item)
+                      <option value="{{ $item->id_kategori }}">{{ $item->jenis_kategori }}</option>
+                    @endforeach                      
+               </select>        
+                </div>           
+            </div>
 
               <div class="form-group row">
                 <label class="col-sm-12 col-md-4 col-form-label">Tempat</label>
                 <div class="col-sm-12 col-md-12">
-                  <input class="form-control" type="text" name="nama_jabatan" placeholder="Masukkan Nama Jabatan">
+                  <input class="form-control" type="text" name="tempat" placeholder="Masukkan Nama Jabatan">
                 </div>
               </div>
 
               <div class="form-group row">
                 <label class="col-sm-12 col-md-4 col-form-label">Status</label>
                 <div class="col-sm-12 col-md-12">
-                  <input class="form-control" type="text" name="id_status" placeholder="Masukkan Nama Jabatan">
-                </div>
-              </div>
-
-              
-
+                <select name="id_status" class="form-control">
+                      <option value="">- Pilih -</option>
+                    @foreach ($status as $item)
+                      <option value="{{ $item->id_status }}">{{ $item->nama_status }}</option>
+                    @endforeach                      
+               </select>    
+                </div>               
+            </div>
               
             </div>
-          
-  
         <div class="modal-footer">
           <button type="submit" class="btn btn-primary">Tambah</button>
         </div>
