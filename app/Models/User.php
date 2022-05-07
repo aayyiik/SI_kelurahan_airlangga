@@ -18,9 +18,9 @@ class User extends Authenticatable
      */
 
      protected $table = 'users';
-     protected $primaryKey = 'nik';
+     protected $primaryKey = 'nik_nip';
     protected $fillable = [
-        'nik',
+        'nik_nip',
         'id_jabatan',
         'id_kelurahan',
         'nama',
@@ -28,6 +28,7 @@ class User extends Authenticatable
         'alamat',
         'no_telp',
         'email', 
+        'status',
         'password',
         'remember_token',
     ];
@@ -56,5 +57,9 @@ class User extends Authenticatable
 
     public function kelurahan() {
         return $this->belongsTo(Kelurahan::class, 'id_kelurahan');
+    }
+
+    public function aktivitas() {
+        return $this->hasMany(Aktivitas::class,'id_aktivitas');
     }
 }

@@ -41,6 +41,7 @@
                 Tambah Data
             </a>
         </div>
+        <!--table start-->
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -48,13 +49,13 @@
                         <tr>
                             <th>No</th>
                             <th>Nama Kegiatan</th>
-                            <th>Tanggal Mulai</th>
-                            <th>Tanggal Selesai</th>
+                            <th>Tanggal</th>
                             <th>Tempat</th>
-                            <th>Kategori</th>
-                            <th>Status</th>  
-                            <th>Gambar Pendukung</th>  
-                            <th>Validasi</th>                     
+                            <th>Kategori Kegiatan</th>
+                            <th>Penyelenggara</th>
+                            <th>Jenis Peserta</th>
+                            <th>Deskripsi</th>
+                            <th>Gambar Pendukung</th>                
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -64,28 +65,20 @@
                         <tr>
                             <td>{{ $no++ }}</td>
                             <td>{{ $item->nama_kegiatan }}</td>
-                            <td>{{ $item->tanggal_mulai}}</td>
-                            <td>{{ $item->tanggal_selesai }}</td>
+                            <td>{{ $item->tanggal}}</td>
                             <td>{{ $item->tempat }}</td>
-                            <td>{{ $item->kategori->jenis_kategori }}</td>
-                            <td>{{ $item->status->nama_status }}</td>
+                          @if ($item->kategori == 1)
+                            <td>Kegiatan Internal/Dalam Kelurahan</td>
+                          @else
+                            <td>Kegiatan Eksternal/Luar Kelurahan</td> 
+                          @endif
+                            <td>{{ $item->penyelenggara }}</td>
+                            <td>{{ $item->jenis_peserta }}</td>
+                            <td>{{ $item->deskripsi }}</td>
                             <td>{{ $item->gambar }}</td>
-                            
-                                @if ($item->validasi == 1)
-                                <td>
-                                <a href="" class="btn-sm btn-warning" data-toggle="modal" data-target="#confirmation-modal" type="button">
-							        Beri validasi
-                                </a> 
-                                </td>
-                            @else
-                                <td>
-                                    <span class="badge badge-pill badge-danger" >Ditolak</span>
-                                </td>
-                            @endif
-                                
                             <td>
-                                <a href="/edit/{{ $item->id_jabatan }}/edit" class="btn-sm btn-warning "><i class="fas fa-fw fa-edit"></i></a>
-                                <a href="/hapus/{{ $item->id_jabatan }}/hapus" class="btn-sm btn-danger "><i class="fas fa-fw fa-trash"></i></a>
+                                <a href="/daftar_kegiatan/{{ $item->id_kegiatan }}/edit" class="btn-sm btn-warning "><i class="fas fa-fw fa-edit"></i></a>
+                                <a href="/daftar_kegiatan/{{ $item->id_kegiatan }}/delete" class="btn-sm btn-danger "><i class="fas fa-fw fa-trash"></i></a>
                             </td>
                         </tr>
                         @endforeach
@@ -93,28 +86,10 @@
                   </table>
             </div>
         </div>
+        <!--End table-->
     </div> 
 </main>
 
-<div class="modal fade" id="confirmation-modal" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-body text-center font-18">
-                <h4 class="padding-top-30 mb-30 weight-500">Setujui Program Kegiatan ini?</h4>
-                <div class="padding-bottom-30 row" style="max-width: 170px; margin: 0 auto;">
-                    <div class="col-6">
-                        <button type="button" class="btn btn-secondary border-radius-100 btn-block confirmation-btn" data-dismiss="modal"><i class="fa fa-times"></i></button>
-                        Tolak
-                    </div>
-                    <div class="col-6">
-                        <button type="button" class="btn btn-primary border-radius-100 btn-block confirmation-btn" data-dismiss="modal"><i class="fa fa-check"></i></button>
-                        Setuju
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 
 <!-- modal -->
@@ -123,68 +98,77 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title" id="myLargeModalLabel">Tambah Daftar Rapat Baru</h4>
+          <h4 class="modal-title" id="myLargeModalLabel">Tambah Daftar Kegiatan Baru</h4>
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         </div>
   
         <div class="modal-body">
-          <form action="/rapat/create" method="POST">
+          <form action="/daftar_kegiatan/create" method="POST">
             @csrf
               <div class="form-group row">
-                <label class="col-sm-12 col-md-4 col-form-label">Nama Rapat</label>
+                <label class="col-sm-12 col-md-4 col-form-label">Nama Kegiatan</label>
                 <div class="col-sm-12 col-md-12">
-                  <input class="form-control" type="text" name="nama_rapat" placeholder="Masukkan Nama Jabatan">
+                  <input class="form-control" type="text" name="nama_kegiatan" placeholder="Masukkan Nama Jabatan">
                 </div>
               </div>
 
               <div class="form-group row">
                 <label class="col-sm-12 col-md-4 col-form-label">Nama Admin</label>
                 <div class="col-sm-12 col-md-12">
-                  <input class="form-control" type="text" name="nik_admin" placeholder="Masukkan Nama Jabatan">
+                  <input class="form-control" type="text" name="no_admin" placeholder="Masukkan Nama Jabatan">
                 </div>
               </div>
 
               <div class="form-group row">
-                <label class="col-sm-12 col-md-4 col-form-label">Tanggal Mulai</label>
+                <label class="col-sm-12 col-md-4 col-form-label">Tanggal</label>
                 <div class="col-sm-12 col-md-12">
-                  <input class="form-control" type="datetime-local" name="tanggal_mulai" placeholder="Masukkan Nama Jabatan">
+                  <input class="form-control" type="datetime-local" name="tanggal" placeholder="Masukkan Nama Jabatan">
                 </div>
               </div>
 
               <div class="form-group row">
-                <label class="col-sm-12 col-md-4 col-form-label">Tanggal Selesai</label>
+                <label class="col-sm-12 col-md-4 col-form-label">Penyelenggara</label>
                 <div class="col-sm-12 col-md-12">
-                  <input class="form-control" type="text" name="tanggal_selesai" placeholder="Masukkan Nama Jabatan">
+                  <input class="form-control" type="text" name="penyelenggara" placeholder="Masukkan Lembaga Penyelenggara">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-sm-12 col-md-4 col-form-label">Jenis Peserta</label>
+                <div class="col-sm-12 col-md-12">
+                  <input class="form-control" type="text" name="jenis_peserta" placeholder="Masukkan Peserta">
                 </div>
               </div>
 
               <div class="form-group row">
                 <label class="col-sm-12 col-md-4 col-form-label">Kategori</label>
                 <div class="col-sm-12 col-md-12">
-                  <input class="form-control" type="text" name="id_kategori" placeholder="Masukkan Nama Jabatan">
-                </div>
-              </div>
+                <select name="kategori" class="form-control">
+                      <option value="">- Pilih Kategori-</option>
+                      <option value="1">Kegiatan Internal/Dalam Kelurahan</option>        
+                      <option value="2">Kegiatan Eksternal/Luar</option>               
+               </select>        
+                </div>           
+            </div>
 
               <div class="form-group row">
                 <label class="col-sm-12 col-md-4 col-form-label">Tempat</label>
                 <div class="col-sm-12 col-md-12">
-                  <input class="form-control" type="text" name="nama_jabatan" placeholder="Masukkan Nama Jabatan">
+                  <input class="form-control" type="text" name="tempat" placeholder="Masukkan Nama Tempat">
                 </div>
               </div>
 
-              <div class="form-group row">
-                <label class="col-sm-12 col-md-4 col-form-label">Status</label>
-                <div class="col-sm-12 col-md-12">
-                  <input class="form-control" type="text" name="id_status" placeholder="Masukkan Nama Jabatan">
-                </div>
+
+      
+            <div class="html-editor row">
+              <label class="col-sm-12 col-md-4 col-form-label">Deskripsi</label>
+              <div class="col-sm-12 col-md-12">
+                <textarea class="textarea_editor form-control border-radius-0" name="deskripsi" placeholder="Masukkan Deskripsi"></textarea>
               </div>
+            </div>  
 
-              
-
-              
-            </div>
-          
   
+            </div> 
         <div class="modal-footer">
           <button type="submit" class="btn btn-primary">Tambah</button>
         </div>

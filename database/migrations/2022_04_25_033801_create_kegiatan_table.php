@@ -15,19 +15,15 @@ class CreateKegiatanTable extends Migration
     {
         Schema::create('kegiatan', function (Blueprint $table) {
             $table->bigIncrements('id_kegiatan');
-            $table->unsignedBigInteger('nik_admin');
-            $table->foreign('nik_admin')->references('nik')->on('users');
-            $table->unsignedBigInteger('id_kategori');
-            $table->foreign('id_kategori')->references('id_kategori')->on('kategori');
-            $table->unsignedBigInteger('id_status');
-            $table->foreign('id_status')->references('id_status')->on('status');
+            $table->unsignedBigInteger('no_admin');
+            $table->foreign('no_admin')->references('nik_nip')->on('users');
             $table->string('nama_kegiatan');
-            $table->dateTime('tanggal_mulai');
-            $table->dateTime('tanggal_selesai');
+            $table->string('penyelenggara')->nullable();
+            $table->string('jenis_peserta');
+            $table->integer('kategori');
+            $table->dateTime('tanggal');
             $table->string('tempat')->nullable();
-            $table->string('deskripsi');
-            $table->string('gambar')->nullable();
-            $table->integer('validasi')->default('0')->nullable();
+            $table->string('deskripsi')->nullable();;
             $table->timestamps();
         });
     }

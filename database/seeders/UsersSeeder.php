@@ -16,7 +16,7 @@ class UsersSeeder extends Seeder
     {
         $user = [
             [
-                'nik'=>'3578276501020001',
+                'nik_nip'=>'198503302003121002',
                 'id_jabatan'=> '1',
                 'id_kelurahan'=> '1',
                 'nama'=>'Sugeng',
@@ -24,11 +24,12 @@ class UsersSeeder extends Seeder
                 'alamat'=>'Jl. dharmawangsa No 09',
                 'no_telp'=> '085853427882',
                 'email'=> 'sugeng@gmail.com',
+                'status' => '1',
                 'password'=> bcrypt('lurah123'),
 
             ],
             [
-                'nik'=>'35782742543278881',
+                'nik_nip'=>'1985033020023447353',
                 'id_jabatan'=> '6',
                 'id_kelurahan'=> '1',
                 'nama'=>'Djayadi',
@@ -36,11 +37,12 @@ class UsersSeeder extends Seeder
                 'alamat'=>'Jl. dharmawangsa No 08',
                 'no_telp'=> '085853427222',
                 'email'=> 'djay@gmail.com',
+                'status'=>'1',
                 'password'=> bcrypt('staff123'),
                 
             ],
             [
-                'nik'=>'3578274254327663',
+                'nik_nip'=>'3578274254327663',
                 'id_jabatan'=> '12',
                 'id_kelurahan'=> '1',
                 'nama'=>'Apri',
@@ -48,6 +50,7 @@ class UsersSeeder extends Seeder
                 'alamat'=>'Jl. dharmawangsa No 04',
                 'no_telp'=> '0858534255342',
                 'email'=> 'apri@gmail.com',
+                'status'=>'2',
                 'password'=> bcrypt('pegawai123'),
             ],
         ];

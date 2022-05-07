@@ -1,5 +1,5 @@
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-danger sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
 
           <!-- Sidebar - Brand -->
           <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -31,33 +31,9 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="/jabatan">
-                    <i class="icon-copy fa fa-sitemap"></i>
-                    <span><strong>Daftar Jabatan</strong></span></a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="/kategori">
-                    <i class="icon-copy fa fa-th-large"></i>
-                    <span><strong>Daftar Kategori Acara</strong></span></a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="/status">
-                    <i class="icon-copy fa fa-link"></i>
-                    <span><strong>List Status</strong></span></a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="/agenda">
+                <a class="nav-link" href="/log_aktivitas">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span><strong>Masukkan Agenda</strong></span></a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="/jadwal_rapat">
-                    <i class="icon-copy fa fa-users"></i>
-                    <span><strong>Jadwal Rapat</strong></span></a>
+                    <span><strong>Log Aktivitas</strong></span></a>
             </li>
 
             <li class="nav-item">

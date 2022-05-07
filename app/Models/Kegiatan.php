@@ -11,28 +11,21 @@ class Kegiatan extends Model
     protected $table = 'kegiatan';
     protected $primaryKey = 'id_kegiatan';
     protected $fillable = [
-        'nik_admin',
-        'id_kategori',
-        'id_status',
+        'no_admin',
+        'kategori',
         'nama_kegiatan',
-        'tanggal_mulai',
-        'tanggal_selesai',
+        'tanggal',
         'tempat',
         'deskripsi',
-        'tanggal',
-        'validasi'
+        'penyelenggara',
+        'jenis_peserta',
+        'kategori',
+        'gambar'
     ];
 
     public function user() {
-        return $this->hasMany(User::class,'nik');
+        return $this->hasMany(User::class,'nik_nip');
     }
 
-    public function status() {
-        return $this->belongsTo(Status::class,'id_status');
-    }
-
-    public function kategori() {
-        return $this->belongsTo(Kategori::class,'id_kategori');
-    }
 
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AktivitasController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\JabatanController;
@@ -53,6 +54,7 @@ Route::get('status/{id_status}/delete',[StatusController::class,'delete']);
 
 //Pegawai 
 Route::get('/daftar_pegawai',[UserController::class,'index']);
+Route::post('daftar_pegawai/create',[UserController::class,'create']);
 
 //Rapat
 Route::get('/jadwal_rapat',[RapatController::class,'index']);
@@ -68,3 +70,6 @@ Route::get('daftar_kegiatan/{id_kegiatan}/edit',[KegiatanController::class,'edit
 Route::post('daftar_kegiatan/{id_kegiatan}/update',[KegiatanController::class,'update']);
 Route::get('daftar_kegiatan/{id_kegiatan}/delete',[KegiatanController::class,'delete']);
 
+//aktivitas
+Route::get('/log_aktivitas',[AktivitasController::class,'index']);
+Route::post('log_aktivitas/create',[AktivitasController::class,'create']);

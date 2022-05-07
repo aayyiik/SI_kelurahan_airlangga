@@ -16,7 +16,7 @@ class KelurahanSeeder extends Seeder
     {
         Kelurahan::create([
             'nama_kelurahan' => 'Kelurahan Airlangga',
-            'alamat'=>'Gubeng Kertajaya IX C / 42'
+            'alamat'=>'Gubeng Kertajaya IX C / 42 Surabaya'
         ]);
     }
 }
