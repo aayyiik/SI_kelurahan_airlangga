@@ -19,7 +19,7 @@
 
           <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-              <a class="nav-link" href="/index">
+              <a class="nav-link" href="/dashboardAdmin">
                 <i class="icon-copy fa fa-home"></i>
                   <span><strong>Dashboard</strong></span></a>
             </li>

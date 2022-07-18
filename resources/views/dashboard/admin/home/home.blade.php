@@ -10,8 +10,8 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                            Total Pegawai Non-PNS</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                            Total Pegawai PNS</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $pns }}</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -28,8 +28,8 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                            Total Pegawai PNS</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                            Total Pegawai Non-PNS</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $non_pns }}</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -49,12 +49,7 @@
                         </div>
                         <div class="row no-gutters align-items-center">
                             <div class="col-auto">
-                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-                            </div>
-                            <div class="col">
-                                <div class="progress progress-sm mr-2">
-                                    <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
+                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ $selesai }}</div>
                             </div>
                         </div>
                     </div>
@@ -73,8 +68,8 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                            Rapat Yang Telah Selesai</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                            Kegiatan Yang Sedang Berjalan</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $berjalan }}</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -93,24 +88,29 @@
             </div>
             <div class="card-body">
               <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <table class="table table-bordered">
                         <thead>
                             <tr>
                                 <th>No</th>
                                 <th>Nama Rapat</th>
                                 <th>Tanggal</th>
                                 <th>Tempat</th>
-                                <th>Penyelenggara</th>              
+                                <th>Penyelenggara</th>  
+                                <th>Jenis Pesrta</th>            
                             </tr>
                         </thead>
                         <tbody>
                             @php $no = 1; @endphp
-                           
+                            @foreach ($internal as $item)
                             <tr>
                                 <td>{{ $no++ }}</td>
-                           
-                            </tr>
-                           
+                                <td>{{ $item->nama_kegiatan }}</td>
+                                <td>{{ $item->tanggal }}</td>
+                                <td>{{ $item->tempat }}</td>
+                                <td>{{ $item->penyelenggara }}</td>
+                                <td>{{ $item->jenis_peserta }}</td>
+                            </tr>                         
+                            @endforeach                      
                         </tbody>
                       </table>
                 </div>
@@ -128,7 +128,7 @@
             </div>
             <div class="card-body">
               <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <table class="table table-bordered" >
                         <thead>
                             <tr>
                                 <th>No</th>
@@ -141,12 +141,16 @@
                         </thead>
                         <tbody>
                             @php $no = 1; @endphp
-                           
+                            @foreach ($eksternal as $item)
                             <tr>
                                 <td>{{ $no++ }}</td>
-                           
-                            </tr>
-                           
+                                <td>{{ $item->nama_kegiatan }}</td>
+                                <td>{{ $item->tanggal }}</td>
+                                <td>{{ $item->tempat }}</td>
+                                <td>{{ $item->penyelenggara }}</td>
+                                <td>{{ $item->jenis_peserta }}</td>
+                            </tr>                         
+                            @endforeach     
                         </tbody>
                       </table>
                 </div>

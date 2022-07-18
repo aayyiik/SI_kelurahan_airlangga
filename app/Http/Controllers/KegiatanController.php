@@ -19,7 +19,7 @@ class KegiatanController extends Controller
         Kegiatan::create($request->all());
         return redirect ('/daftar_kegiatan')->with('sukses','Data Berhasil Diinput');
        
-        return redirect('/daftar_kegiatan');
+        // return redirect('/daftar_kegiatan');
 
     }
 

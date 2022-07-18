@@ -27,7 +27,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/index',[DashboardController::class,'index']);
+Route::get('/dashboardAdmin',[DashboardController::class,'dashboardAdmin']);
 Route::get('/login',[AuthController::class,'login']);
 
 
@@ -73,3 +73,6 @@ Route::get('daftar_kegiatan/{id_kegiatan}/delete',[KegiatanController::class,'de
 //aktivitas
 Route::get('/log_aktivitas',[AktivitasController::class,'index']);
 Route::post('log_aktivitas/create',[AktivitasController::class,'create']);
+Route::get('log_aktivitas/{id_aktivitas}/edit',[AktivitasController::class,'edit']);
+Route::post('log_aktivitas/{id_aktivitas}/update',[AktivitasController::class,'update']);
+Route::get('log_aktivitas/{id_aktivitas}/delete',[AktivitasController::class,'delete']);

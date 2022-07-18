@@ -54,8 +54,7 @@
                             <th>Kategori Kegiatan</th>
                             <th>Penyelenggara</th>
                             <th>Jenis Peserta</th>
-                            <th>Deskripsi</th>
-                            <th>Gambar Pendukung</th>                
+                            <th>Deskripsi</th>               
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -75,7 +74,6 @@
                             <td>{{ $item->penyelenggara }}</td>
                             <td>{{ $item->jenis_peserta }}</td>
                             <td>{{ $item->deskripsi }}</td>
-                            <td>{{ $item->gambar }}</td>
                             <td>
                                 <a href="/daftar_kegiatan/{{ $item->id_kegiatan }}/edit" class="btn-sm btn-warning "><i class="fas fa-fw fa-edit"></i></a>
                                 <a href="/daftar_kegiatan/{{ $item->id_kegiatan }}/delete" class="btn-sm btn-danger "><i class="fas fa-fw fa-trash"></i></a>

@@ -58,4 +58,4 @@ class UserController extends Controller
         return redirect('/profilsetting/{id_user}');
     }
 }
-}
+

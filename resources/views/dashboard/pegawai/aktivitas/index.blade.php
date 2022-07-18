@@ -53,7 +53,7 @@
                      <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">AKtivitas Hari ini</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Aktivitas Hari ini</h6>
                             <a href="" class="btn btn-primary btn-sm float-right" data-toggle="modal" data-target="#Medium-modal" type="button">
                                 Tambah Data
                             </a>
@@ -75,7 +75,9 @@
                                         <tr>
                                             <td>{{ $no++ }}</td>
                                             <td>{{ $item->nama_aktivitas }}</td>
-                                            <th>{{ $item->foto }}</th>
+                                            <td>
+                                              <img src="{{ asset('assets/img/log/'.$item->foto) }}" width="100px" height="100px" alt="image">
+                                            </td>
                                             <td>
                                                 <a href="/log_aktivitas/{{ $item->id_aktivitas }}/edit" class="btn-sm btn-warning "><i class="fas fa-fw fa-edit"></i></a>
                                                 <a href="/log_aktivitas/{{ $item->id_aktivitas }}/delete" class="btn-sm btn-danger "><i class="fas fa-fw fa-trash"></i></a>
@@ -102,7 +104,7 @@
         </div>
   
         <div class="modal-body">
-          <form action="/log_aktivitas/create" method="POST">
+          <form action="/log_aktivitas/create" method="POST" enctype="multipart/form-data">
             @csrf
               <div class="form-group row">
                 <label class="col-sm-12 col-md-4 col-form-label">Nama Aktivitas</label>
@@ -117,15 +119,17 @@
                   <input class="form-control" type="text" name="no_pegawai" placeholder="Masukkan Nama Pegawai">
                 </div>
               </div>
-
+{{-- 
               <div class="form-group">
                 <label>Foto aktivitas</label>
                 <div class="custom-file">
                     <input type="file" name="foto" class="custom-file-input">
                     <label class="custom-file-label">Pilih</label>
                 </div>
-                </div>
+                </div> --}}
            
+                <label class="form-label" for="customFile">File Aktivitas</label>
+                  <input type="file" class="form-control" id="customFile" name="foto" />
   
             </div> 
         <div class="modal-footer">
