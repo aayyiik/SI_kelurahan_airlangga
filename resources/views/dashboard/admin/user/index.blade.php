@@ -9,6 +9,31 @@
         <li class="breadcrumb-item">Pages</li>
         <li class="breadcrumb-item active">user</li>
       </ol>
+
+       <!-- Alert notifikasi -->
+       @if ($message = Session::get('sukses'))
+       <div class="alert alert-success" role="alert">
+         <button type="button" class="close" data-dismiss="alert">×</button> 
+         <strong>{{ $message }}</strong>
+         </div>
+       @endif
+ 
+       @if ($message = Session::get('update'))
+       <div class="alert alert-warning" role="alert">
+           <button type="button" class="close" data-dismiss="alert">×</button> 
+         <strong>{{ $message }}</strong>
+         </i>
+         </div>
+       @endif
+ 
+       @if ($message = Session::get('hapus'))
+       <div class="alert alert-danger" role="alert">
+         <button type="button" class="close" data-dismiss="alert">×</button> 
+         <strong>{{ $message }}</strong>
+         </div>
+       @endif
+
+
      <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
@@ -77,11 +102,9 @@
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         </div>
 
-       
-        <div class="modal-body">
-          <form action="/daftar_pegawai/create" method="POST">
+      <div class="modal-body">
+        <form action="/daftar_pegawai/create" method="POST">
             @csrf
-
             <div class="form-group">
                 <label>Kelurahan</label>
                 <input type="text" class="form-control" placeholder="Kelurahan Airlangga" disabled="">
@@ -90,37 +113,50 @@
               <div class="form-group row">
                 <label class="col-sm-12 col-md-6 col-form-label">No Identitas (NIK/NIP)</label>
                 <div class="col-sm-12 col-md-12">
-                  <input class="form-control" type="text" name="nik_nip" placeholder="Masukkan No Identitas(NIK/NIP)">
+                  <input class="form-control {{ $errors->has('nik_nip') ? ' is-invalid' : '' }}" type="text" name="nik_nip"  
+                  placeholder="Masukkan No Identitas(NIK/NIP)" >
+                  @if($errors->has('nik_nip'))
+                    <span class="invalid-feedback">{{ $errors->first('nik_nip') }}</span>
+                  @endif
                 </div>
               </div>
 
               <div class="form-group row">
                 <label class="col-sm-12 col-md-4 col-form-label">Nama Lengkap</label>
                 <div class="col-sm-12 col-md-12">
-                  <input class="form-control" type="text" name="nama" placeholder="Masukkan Nama Jabatan">
+                  <input class="form-control {{ $errors->has('nama') ? ' is-invalid' : '' }}" type="text" name="nama" placeholder="Masukkan Nama Jabatan" >
+                  @if($errors->has('nama'))
+                  <span class="invalid-feedback">{{ $errors->first('nama') }}</span>
+                @endif
                 </div>
               </div>
 
               <div class="form-group row">
                 <label class="col-sm-12 col-md-4 col-form-label">Jabatan</label>
                 <div class="col-sm-12 col-md-12">
-                <select name="id_jabatan" class="form-control">
+                <select name="id_jabatan" class="form-control {{ $errors->has('jabatan') ? ' is-invalid' : '' }}" >
                       <option value="">- Pilih -</option>
                       @foreach ($jabatan as $item)
-                      <option value="{{ $item->id_jabatan }}">{{ $item->nama_jabatan }}</option>
+                      <option value="{{ $item->id_jabatan }} ">{{ $item->nama_jabatan }} </option>
                       @endforeach             
-               </select>        
+               </select>      
+               @if($errors->has('id_jabatan'))
+                    <span class="invalid-feedback">{{ $errors->first('id_jabatan') }}</span>
+                  @endif 
                 </div>           
             </div>
 
               <div class="form-group row">
                 <label class="col-sm-12 col-md-4 col-form-label">Jenis Kelamin</label>
                 <div class="col-sm-12 col-md-12">
-                <select name="jenis_kelamin" class="form-control">
+                <select name="jenis_kelamin" class="form-control {{ $errors->has('jenis_kelamin') ? ' is-invalid' : '' }}" >
                       <option value="">- Pilih -</option>
                       <option value="1">Laki-laki</option>        
                       <option value="2">Perempuan</option>               
-               </select>        
+               </select>      
+               @if($errors->has('jenis_kelamin'))
+                    <span class="invalid-feedback">{{ $errors->first('jenis_kelamin') }}</span>
+                  @endif
                 </div>           
             </div>
 
@@ -128,29 +164,39 @@
               <div class="form-group row">
                 <label class="col-sm-12 col-md-4 col-form-label">Alamat</label>
                 <div class="col-sm-12 col-md-12">
-                  <input class="form-control" type="text" name="alamat" placeholder="Masukkan Alamat">
+                  <input class="form-control {{ $errors->has('alamat') ? ' is-invalid' : '' }}" type="text" name="alamat" 
+                   placeholder="Masukkan Alamat">
+                   @if($errors->has('alamat'))
+                   <span class="invalid-feedback">{{ $errors->first('alamat') }}</span>
+                 @endif
                 </div>
               </div>
 
               <div class="form-group row">
                 <label class="col-sm-12 col-md-6 col-form-label">No Telp (bisa dihubungi)</label>
                 <div class="col-sm-12 col-md-12">
-                  <input class="form-control" type="text" name="no_telp" placeholder="Masukkan No telp">
+                  <input class="form-control {{ $errors->has('no_telp') ? ' is-invalid' : '' }}" type="text" name="no_telp" 
+                  placeholder="Masukkan No telp" >
+                  @if($errors->has('no_telp'))
+                    <span class="invalid-feedback">{{ $errors->first('no_telp') }}</span>
+                  @endif
                 </div>
               </div>
 
               <div class="form-group row">
                 <label class="col-sm-12 col-md-4 col-form-label">Status Pegawai</label>
                 <div class="col-sm-12 col-md-12">
-                <select name="status" class="form-control">
+                <select name="status" class="form-control {{ $errors->has('status') ? ' is-invalid' : '' }}" > 
                       <option value="">- Pilih Status -</option>
                       <option value="1">PNS</option>        
                       <option value="2">Non-PNS</option>               
                </select>        
+                  @if($errors->has('status'))
+                    <span class="invalid-feedback">{{ $errors->first('status') }}</span>
+                  @endif
                 </div>           
-                </div>
-
-             
+              </div>
+ 
             </div> 
         <div class="modal-footer">
           <button type="submit" class="btn btn-primary">Tambah</button>
@@ -159,4 +205,5 @@
       </div>
     </div>
   </div>
+
 @endsection

@@ -38,13 +38,23 @@
                                 <label class="col-sm-12 col-md-2 col-form-label">Status</label>
                                 <div class="col-sm-12 col-md-10">
                                     <select class="custom-select col-12" name="status">
-                                            <option value="1" {{ $user->status == $user->status ? 'selected' : '' }} >PNS</option>
-                                            <option value="2"{{ $user->status == $user->status ? 'selected' : '' }} >Non-PNS</option>
+                                            <option value="1" {{ $user->status == 1 ? 'selected' : '' }} >PNS</option>
+                                            <option value="2"{{ $user->status == 2 ? 'selected' : '' }} >Non-PNS</option>
                                     </select>
                                 </div>
                             </div>
 
-                            <input class="form-control" type="hidden" name="id_jabatan" value="{{ $user->id_jabatan }}">
+                            <div class="form-group row">
+                                <label class="col-sm-12 col-md-2 col-form-label">Jabatan</label>
+                                <div class="col-sm-12 col-md-10">
+                                    <select class="custom-select col-12" name="id_jabatan">
+                                        @foreach($jabatan as $item)
+                                            <option value="{{ $item->id_jabatan }}" {{ $item->id_jabatan == $user->id_jabatan ? 'selected' : '' }}>{{ $item->nama_jabatan }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+
                             <input class="form-control" type="hidden" name="id_kelurahan" value="{{ $user->id_kelurahan }}">
                             <input class="form-control" type="hidden" name="jenis_kelamin" value="{{ $user->jenis_kelamin }}">                   
                             <input class="form-control" type="hidden" name="alamat" value="{{ $user->alamat }}">

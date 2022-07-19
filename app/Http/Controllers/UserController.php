@@ -18,6 +18,18 @@ class UserController extends Controller
     }
 
     public function create( Request $request ){
+        $request->validate([
+            'nik_nip' => 'required|unique:users,nik_nip',
+            'nama' => 'required',
+            'id_jabatan'=> 'required',
+            'id_kelurahan'=> 'required',
+            'jenis_kelamin'=> 'required',
+            'alamat'=> 'required',
+            'no_telp'=> 'required',
+            'status'=> 'required'
+
+        ]);
+       
         $pegawai = new User;
         $pegawai->nik_nip = $request['nik_nip'];
         $pegawai->id_kelurahan = 1;
@@ -30,8 +42,10 @@ class UserController extends Controller
         $pegawai->password = bcrypt($request['nik_nip']);
         $pegawai->save();
 
-        return redirect('/daftar_pegawai');
-    }
+     
+            return redirect('/daftar_pegawai')->with('sukses','Data Berhasil Diinput');
+     
+}
 
     public function updateprofil(Request $request, $id_user){
         // $user = User::with(Auth::user()->id_user);
@@ -61,8 +75,8 @@ class UserController extends Controller
 
     public function edit($nik_nip){
         $user = User::find($nik_nip);
-
-        return view('dashboard.admin.user.edit', compact('user'));
+        $jabatan = Jabatan::all();
+        return view('dashboard.admin.user.edit', compact('user','jabatan'));
     }
 
     public function update(Request $request, $nik_nip){

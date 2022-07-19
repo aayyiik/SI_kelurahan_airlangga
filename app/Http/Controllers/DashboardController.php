@@ -21,7 +21,7 @@ class DashboardController extends Controller
         $selesai = Kegiatan::where('tanggal','>','now')->get()->count();
         $eksternal = Kegiatan::where('kategori','=','2')->get()->count();
 
-        $internal = Kegiatan::where('kategori','=','1')->get();
+        $internal = Kegiatan::where('kategori','=','1')->get()->sortBy('tanggal','DESC');
         $eksternal = Kegiatan::where('kategori','=','2')->get();
 
         return view('dashboard.admin.home.home',compact('pns','non_pns','internal','eksternal','berjalan','selesai'));

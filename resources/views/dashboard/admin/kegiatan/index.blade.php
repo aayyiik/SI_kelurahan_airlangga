@@ -106,53 +106,74 @@
               <div class="form-group row">
                 <label class="col-sm-12 col-md-4 col-form-label">Nama Kegiatan</label>
                 <div class="col-sm-12 col-md-12">
-                  <input class="form-control" type="text" name="nama_kegiatan" placeholder="Masukkan Nama Jabatan">
-                </div>
+                  <input class="form-control {{ $errors->has('nama_kegiatan') ? ' is-invalid' : '' }}" type="text" name="nama_kegiatan" placeholder="Masukkan Nama Jabatan">
+                  @if($errors->has('nama_kegiatan'))
+                    <span class="invalid-feedback">{{ $errors->first('nama_kegiatan') }}</span>
+                  @endif
+                </div>  
               </div>
 
               <div class="form-group row">
                 <label class="col-sm-12 col-md-4 col-form-label">Nama Admin</label>
                 <div class="col-sm-12 col-md-12">
-                  <input class="form-control" type="text" name="no_admin" placeholder="Masukkan Nama Jabatan">
+                  <input class="form-control {{ $errors->has('no_admin') ? ' is-invalid' : '' }}" type="text" name="no_admin" placeholder="Masukkan Nama Jabatan">
+                  @if($errors->has('no_admin'))
+                    <span class="invalid-feedback">{{ $errors->first('no_admin') }}</span>
+                  @endif
                 </div>
               </div>
 
               <div class="form-group row">
                 <label class="col-sm-12 col-md-4 col-form-label">Tanggal</label>
                 <div class="col-sm-12 col-md-12">
-                  <input class="form-control" type="datetime-local" name="tanggal" placeholder="Masukkan Nama Jabatan">
+                  <input class="form-control {{ $errors->has('tanggal') ? ' is-invalid' : '' }}" type="datetime-local" name="tanggal" placeholder="Masukkan Nama Jabatan">
+                  @if($errors->has('tanggal'))
+                    <span class="invalid-feedback">{{ $errors->first('tanggal') }}</span>
+                  @endif
                 </div>
               </div>
 
               <div class="form-group row">
                 <label class="col-sm-12 col-md-4 col-form-label">Penyelenggara</label>
                 <div class="col-sm-12 col-md-12">
-                  <input class="form-control" type="text" name="penyelenggara" placeholder="Masukkan Lembaga Penyelenggara">
+                  <input class="form-control {{ $errors->has('penyelenggara') ? ' is-invalid' : '' }}" type="text" name="penyelenggara" placeholder="Masukkan Lembaga Penyelenggara">
+                  @if($errors->has('penyelenggara'))
+                    <span class="invalid-feedback">{{ $errors->first('penyelenggara') }}</span>
+                  @endif
                 </div>
               </div>
 
               <div class="form-group row">
                 <label class="col-sm-12 col-md-4 col-form-label">Jenis Peserta</label>
                 <div class="col-sm-12 col-md-12">
-                  <input class="form-control" type="text" name="jenis_peserta" placeholder="Masukkan Peserta">
+                  <input class="form-control{{ $errors->has('jenis_peserta') ? ' is-invalid' : '' }}" type="text" name="jenis_peserta" placeholder="Masukkan Peserta">
+                  @if($errors->has('jenis_peserta'))
+                    <span class="invalid-feedback">{{ $errors->first('jenis_peserta') }}</span>
+                  @endif
                 </div>
               </div>
 
               <div class="form-group row">
                 <label class="col-sm-12 col-md-4 col-form-label">Kategori</label>
                 <div class="col-sm-12 col-md-12">
-                <select name="kategori" class="form-control">
+                <select name="kategori" class="form-control {{ $errors->has('kategori') ? ' is-invalid' : '' }}">
                       <option value="">- Pilih Kategori-</option>
                       <option value="1">Kegiatan Internal/Dalam Kelurahan</option>        
                       <option value="2">Kegiatan Eksternal/Luar</option>               
                </select>        
-                </div>           
+                @if($errors->has('kategori'))
+                  <span class="invalid-feedback">{{ $errors->first('kategori') }}</span>
+                @endif  
+              </div>           
             </div>
 
               <div class="form-group row">
                 <label class="col-sm-12 col-md-4 col-form-label">Tempat</label>
                 <div class="col-sm-12 col-md-12">
-                  <input class="form-control" type="text" name="tempat" placeholder="Masukkan Nama Tempat">
+                  <input class="form-control {{ $errors->has('tempat') ? ' is-invalid' : '' }}" type="text" name="tempat" placeholder="Masukkan Nama Tempat">
+                  @if($errors->has('tempat'))
+                    <span class="invalid-feedback">{{ $errors->first('tempat') }}</span>
+                  @endif
                 </div>
               </div>
 
@@ -161,7 +182,10 @@
             <div class="html-editor row">
               <label class="col-sm-12 col-md-4 col-form-label">Deskripsi</label>
               <div class="col-sm-12 col-md-12">
-                <textarea class="textarea_editor form-control border-radius-0" name="deskripsi" placeholder="Masukkan Deskripsi"></textarea>
+                <textarea class="textarea_editor form-control border-radius-0 {{ $errors->has('deskripsi') ? ' is-invalid' : '' }}" name="deskripsi" placeholder="Masukkan Deskripsi"></textarea>
+                  @if($errors->has('deskripsi'))
+                    <span class="invalid-feedback">{{ $errors->first('deskripsi') }}</span>
+                  @endif
               </div>
             </div>  
 

@@ -16,6 +16,18 @@ class KegiatanController extends Controller
     }
 
     public function create(Request $request){
+        $request->validate([
+            'nama_kegiatan' => 'required',
+            'no_admin' => 'required',
+            'nama_kegiatan'=> 'required',
+            'penyelenggara'=> 'required',
+            'jenis_peserta'=> 'required',
+            'kategori'=> 'required',
+            'tanggal'=> 'required',
+            'tempat'=> 'required'
+
+        ]);
+
         Kegiatan::create($request->all());
         return redirect ('/daftar_kegiatan')->with('sukses','Data Berhasil Diinput');
        

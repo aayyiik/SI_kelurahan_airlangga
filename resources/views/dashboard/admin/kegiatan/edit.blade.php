@@ -67,19 +67,14 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <label class="col-sm-12 col-md-2 col-form-label">Gambar</label>
-                                <div class="col-sm-12 col-md-10">
-                                    <input class="form-control" type="text" name="gambar" value="{{ $kegiatan->gambar }}">
-                                </div>
-                            </div>
+
 
                             <div class="form-group row">
                                 <label class="col-sm-12 col-md-2 col-form-label">Kategori</label>
                                 <div class="col-sm-12 col-md-10">
                                     <select class="custom-select col-12" name="kategori">
-                                            <option value="1" {{ $kegiatan->kategori == $kegiatan->kategori ? 'selected' : '' }} >Kegiatan Internal/Dalam Kelurahan</option>
-                                            <option value="2">Kegiatan Eksternal/Luar</option>
+                                            <option value="1" {{($kegiatan->kategori ==1) ? 'selected' : ''}} >Kegiatan Internal/Dalam Kelurahan</option>
+                                            <option value="2"{{($kegiatan->kategori ==2) ? 'selected' : ''}}>Kegiatan Eksternal/Luar</option>
                                     </select>
                                 </div>
                             </div>
