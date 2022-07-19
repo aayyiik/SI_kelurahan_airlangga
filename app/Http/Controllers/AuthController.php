@@ -25,7 +25,7 @@ class AuthController extends Controller
             $user = Auth::user();
 
             if($user->jabatan == '....' ){
-                return redirect('/dashboard_admin');
+                return redirect('/dashboardAdmin');
             }elseif($user->role == 'petugas'){
                 return redirect ('/dashboard_petugas');
             }elseif($user->role == 'warga'){

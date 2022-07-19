@@ -27,4 +27,11 @@ class DashboardController extends Controller
         return view('dashboard.admin.home.home',compact('pns','non_pns','internal','eksternal','berjalan','selesai'));
     }
 
+    public function dashboardPegawaidanMasyarakat(){
+        $internal = Kegiatan::where('kategori','=','1')->get();
+        $eksternal = Kegiatan::where('kategori','=','2')->get();
+
+        return view('dashboard.pegawai.home.home',compact('pns','non_pns','internal','eksternal','berjalan','selesai'));
+    }
+
 }

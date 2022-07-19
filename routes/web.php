@@ -55,6 +55,8 @@ Route::get('status/{id_status}/delete',[StatusController::class,'delete']);
 //Pegawai 
 Route::get('/daftar_pegawai',[UserController::class,'index']);
 Route::post('daftar_pegawai/create',[UserController::class,'create']);
+Route::get('daftar_pegawai/{nik_nip}/edit',[UserController::class,'edit']);
+Route::post('daftar_pegawai/{nik_nip}/update',[UserController::class,'update']);
 
 //Rapat
 Route::get('/jadwal_rapat',[RapatController::class,'index']);
