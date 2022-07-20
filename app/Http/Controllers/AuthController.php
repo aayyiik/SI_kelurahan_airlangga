@@ -15,25 +15,25 @@ class AuthController extends Controller
     public function postlogin(Request $request){
 
         $this->validate($request, [
-            'nik'=>'required|16',
+            'nik_nip'=>'required',
             'password'=>'required',
         ]);
 
-        $user = $request->only('nik','password');
+        $user = $request->only('nik_nip','password');
         if(Auth::attempt($user)){
-
             $user = Auth::user();
-
-            if($user->jabatan == '....' ){
+            if($user->id_jabatan=='14'){
                 return redirect('/dashboardAdmin');
-            }elseif($user->role == 'petugas'){
-                return redirect ('/dashboard_petugas');
-            }elseif($user->role == 'warga'){
-                return redirect('/dashboard');
+            }elseif($user->id_jabatan != '14'){
+                return redirect('/dashboardGuruPages');
+            }elseif($user->id_jabatan=='3'){
+                return redirect('/ortuPagesKemajuan');
             }
 
-            return redirect()->intended('/');
+            return redirect()->intended('/login');
         }
+
+       
 
         return redirect('login')
         ->withInput()

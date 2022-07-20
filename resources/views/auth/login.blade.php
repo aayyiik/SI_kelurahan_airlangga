@@ -45,11 +45,23 @@
                                         
                                       </div>
                                       <h5 class="card-title text-center pb-0 fs-4">KELURAHAN AIRLANGGA</h5>
-                                    
+                                      @error('login_gagal')
+                                      {{-- <span class="invalid-feedback" role="alert">
+                                          <strong>{{ $message }}</strong>
+                                      </span> --}}
+                                      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                          {{-- <span class="alert-inner--icon"><i class="ni ni-like-2"></i></span> --}}
+                                          <span class="alert-inner--text"><strong>Warning!</strong> {{ $message }}</span>
+                                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                              <span aria-hidden="true">&times;</span>
+                                          </button>
+                                      </div>
+                                      @enderror
 
-                                    <form class="user">
+                                    <form action="/postlogin" method="POST">
+                                        @csrf
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
+                                            <input type="integer" class="form-control form-control-user"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
                                                 placeholder="NIP/NIK" name="nik_nip">
                                         </div>
@@ -57,15 +69,16 @@
                                             <input type="password" class="form-control form-control-user"
                                                 id="exampleInputPassword" placeholder="Password" name="password">
                                         </div>
-                                        <div class="form-group">
+                                        {{-- <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
                                                 <input type="checkbox" class="custom-control-input" id="customCheck">
                                                 <label class="custom-control-label" for="customCheck">Remember
                                                     Me</label>
                                             </div>
-                                        </div>
-                                        <a href="index.html" class="btn btn-success btn-user btn-block">
-                                            MASUK
+                                        </div> --}}
+                                        {{-- <a href="index.html" class="btn btn-success btn-user btn-block"> --}}
+                                            <input type="submit"  class="btn btn-success btn-lg btn-block">
+                                          
                                         </a>
                                         <hr>
 

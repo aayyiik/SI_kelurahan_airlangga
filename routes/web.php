@@ -27,8 +27,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboardAdmin',[DashboardController::class,'dashboardAdmin']);
+Route::group(['middleware'=>['auth','cek_login:14']], function(){
+    
+    Route::get('/dashboardAdmin',[DashboardController::class,'dashboardAdmin']);
+    //Kategori
+Route::get('/kategori',[KategoriController::class,'index']);
+Route::post('kategori/create',[KategoriController::class,'create']);
+Route::get('kategori/{id_kategori}/edit',[KategoriController::class,'edit']);
+Route::post('kategori/{id_kategori}/update',[KategoriController::class,'update']);
+Route::get('kategori/{id_kategori}/delete',[KategoriController::class,'delete']);
+
+});
+
 Route::get('/login',[AuthController::class,'login']);
+Route::post('/postlogin',[AuthController::class,'postlogin'])->name('postlogin');
 
 
 //Jabatan
@@ -38,12 +50,7 @@ Route::get('jabatan/{id_jabatan}/edit',[JabatanController::class,'edit']);
 Route::post('jabatan/{id_jabatan}/update',[JabatanController::class,'update']);
 Route::get('jabatan/{id_jabatan}/delete',[JabatanController::class,'delete']);
 
-//Kategori
-Route::get('/kategori',[KategoriController::class,'index']);
-Route::post('kategori/create',[KategoriController::class,'create']);
-Route::get('kategori/{id_kategori}/edit',[KategoriController::class,'edit']);
-Route::post('kategori/{id_kategori}/update',[KategoriController::class,'update']);
-Route::get('kategori/{id_kategori}/delete',[KategoriController::class,'delete']);
+
 
 //status
 Route::get('/status',[StatusController::class,'index']);

@@ -29,4 +29,7 @@ class Cek_login
         return redirect('login')->with('error',"Anda tidak memiliki akses masuk");
        
     }
+
+  
 }
+
