@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\File;
 class AktivitasController extends Controller
 {
     public function index(){
-        $aktivitas = Aktivitas::all();
+        $aktivitas = Aktivitas::orderBy('created_at','desc')->get();
         $user = User::all();
         return view('dashboard.pegawai.aktivitas.index',['aktivitas'=>$aktivitas], compact('user'));
     }

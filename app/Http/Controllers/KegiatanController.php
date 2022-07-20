@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class KegiatanController extends Controller
 {
     public function index(){
-        $kegiatan = Kegiatan::all();
+        $kegiatan = Kegiatan::orderBy('created_at','desc')->get();
         $user = User::all();
         return view ('dashboard.admin.kegiatan.index',['kegiatan'=>$kegiatan], compact('user',));
     }
