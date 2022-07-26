@@ -88,7 +88,7 @@
             </div>
             <div class="card-body">
               <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable">
+                    <table class="table table-bordered" id="dataTable" >
                         <thead>
                             <tr>
                                 <th>No</th>
@@ -114,11 +114,11 @@
                         </tbody>
                       </table>
                       <br/>
-                      Halaman : {{ $internal->currentPage() }} <br/>
+                      {{-- Halaman : {{ $internal->currentPage() }} <br/>
                       Jumlah Data : {{ $internal->total() }} <br/>
                       Data Per Halaman : {{ $internal->perPage() }} <br/>
+                   --}}
                   
-                    {{ $internal->links() }}
                 </div>
 
             </div>
@@ -134,7 +134,7 @@
             </div>
             <div class="card-body">
               <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable">
+                    <table class="table table-bordered" id="dataTable2" >
                         <thead>
                             <tr>
                                 <th>No</th>
@@ -160,11 +160,9 @@
                         </tbody>
                       </table>
                       <br/>
-                      Halaman : {{ $internal->currentPage() }} <br/>
-                      Jumlah Data : {{ $internal->total() }} <br/>
-                      Data Per Halaman : {{ $internal->perPage() }} <br/>
+                     
                   
-                    {{ $eksternal->links() }}
+                    
                      
                 </div>
 

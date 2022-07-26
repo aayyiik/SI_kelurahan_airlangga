@@ -24,10 +24,8 @@ class AuthController extends Controller
             $user = Auth::user();
             if($user->id_jabatan=='14'){
                 return redirect('/dashboardAdmin');
-            }elseif($user->id_jabatan != '14'){
-                return redirect('/dashboardGuruPages');
-            }elseif($user->id_jabatan=='3'){
-                return redirect('/ortuPagesKemajuan');
+            }else{
+                return redirect ('/dashboard');
             }
 
             return redirect()->intended('/login');

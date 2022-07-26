@@ -1,5 +1,10 @@
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
+
+    
+            <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
+   
+
+        
 
           <!-- Sidebar - Brand -->
           <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -16,14 +21,45 @@
           <hr class="sidebar-divider my-0">
 
           
-
+          
+            
           <!-- Nav Item - Dashboard -->
+          @if(!Auth::user())
+
+          <li class="nav-item">
+            <a class="nav-link" href="/dashboard">
+              <i class="icon-copy fa fa-home"></i>
+                <span><strong>Dashboard</strong></span></a>
+          </li>
+
+          @endif
+
+
+
+           
+        @if(Auth::user())
+
+        @if(Auth::user()->id_jabatan == '14')
             <li class="nav-item">
-              <a class="nav-link" href="/dashboardAdmin">
+                <a class="nav-link" href="/dashboardAdmin">
                 <i class="icon-copy fa fa-home"></i>
-                  <span><strong>Dashboard</strong></span></a>
+                <span><strong>Dashboard</strong></span></a>
+            </li>
+        @else
+
+        <li class="nav-item">
+            <a class="nav-link" href="/dashboard">
+              <i class="icon-copy fa fa-home"></i>
+                <span><strong>Dashboard</strong></span></a>
+          </li>
+        @endif
+            <li class="nav-item">
+                <a class="nav-link" href="/log_aktivitas">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span><strong>Log Aktivitas</strong></span></a>
             </li>
 
+        @if(Auth::user()->id_jabatan == '14')
             <li class="nav-item">
                 <a class="nav-link" href="/daftar_pegawai">
                     <i class="icon-copy fa fa-address-book"></i>
@@ -31,17 +67,14 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="/log_aktivitas">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span><strong>Log Aktivitas</strong></span></a>
-            </li>
-
-            <li class="nav-item">
                 <a class="nav-link" href="/daftar_kegiatan">
                     <i class="icon-copy fa fa-map"></i>
                     <span><strong>Pengajuan Kegiatan</strong></span></a>
             </li>
+        @endif
 
+@endif
+            
 
           <!-- Divider -->
           <hr class="sidebar-divider">

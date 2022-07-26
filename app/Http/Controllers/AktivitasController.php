@@ -4,15 +4,31 @@ namespace App\Http\Controllers;
 
 use App\Models\Aktivitas;
 use App\Models\User;
+use App\Models\Jabatan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
 class AktivitasController extends Controller
 {
     public function index(){
-        $aktivitas = Aktivitas::orderBy('created_at','desc')->get();
-        $user = User::all();
-        return view('dashboard.pegawai.aktivitas.index',['aktivitas'=>$aktivitas], compact('user'));
+
+        
+            $user = Auth::user();
+            if($user->id_jabatan=='14'){
+                $aktivitas = Aktivitas::orderBy('created_at','desc')->get();
+                $jabatan = Jabatan::all();
+                $user = User::all();
+                return view('dashboard.pegawai.aktivitas.index',compact('aktivitas','user','jabatan'));
+            }else{
+                $lihatAktivitas = Aktivitas::where('no_pegawai','=',Auth::user()->nik_nip)->get();
+                $jabatan = Jabatan::all();
+                $user = User::all();
+                return view('dashboard.pegawai.aktivitas.index',compact('lihatAktivitas','user','jabatan'));
+            }
+        
+        // ->orderBy('created_at','desc')->get();
+        
     }
 
     public function create (Request $request){

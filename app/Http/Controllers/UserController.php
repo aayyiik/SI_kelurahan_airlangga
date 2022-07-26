@@ -7,6 +7,8 @@ use App\Models\Kelurahan;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Hash;
+use Illuminate\Support\Facades\Hash as FacadesHash;
 
 class UserController extends Controller
 {
@@ -18,17 +20,17 @@ class UserController extends Controller
     }
 
     public function create( Request $request ){
-        $request->validate([
-            'nik_nip' => 'required|unique:users,nik_nip',
-            'nama' => 'required',
-            'id_jabatan'=> 'required',
-            'id_kelurahan'=> 'required',
-            'jenis_kelamin'=> 'required',
-            'alamat'=> 'required',
-            'no_telp'=> 'required',
-            'status'=> 'required'
+        // $request->validate([
+        //     'nik_nip' => 'required|unique:users,nik_nip',
+        //     'nama' => 'required',
+        //     'id_jabatan'=> 'required',
+        //     'id_kelurahan'=> 'required',
+        //     'jenis_kelamin'=> 'required',
+        //     'alamat'=> 'required',
+        //     'no_telp'=> 'required',
+        //     'status'=> 'required'
 
-        ]);
+        // ]);
        
         $pegawai = new User;
         $pegawai->nik_nip = $request['nik_nip'];
@@ -95,5 +97,60 @@ class UserController extends Controller
         $user->update();
         return redirect('/daftar_pegawai');
     }
+
+    public function delete ($nik_nip){
+        $user = User::find($nik_nip);
+        $user->delete($user);
+        return redirect('/daftar_pegawai')->with('hapus','Data Berhasil dihapus');
+    }
+
+    public function setting_profil ($nik_nip){
+        $user = User::find(Auth::user()->nik_nip);
+        $jabatan = Jabatan::all();
+        return view ('dashboard.pegawai.setprof', compact('user','jabatan'));
+    }
+
+    public function profil_update(Request $request, $nik_nip){
+
+        $request->validate([
+            'nama' => 'required',
+            'alamat'=> 'required',
+            'no_telp'=>'required'
+        ]);
+
+        $user = User::find(Auth::user()->nik_nip);
+        $user->update($request->all());
+        return back()->with('update','Profil berhasil diupdate');
+     
+    }
+
+    public function change_password($nik_nip){
+        $user = User::find(Auth::user()->nik_nip);
+        return view ('dashboard.pegawai.changepassword', compact('user'));
+    }
+
+    public function password_update(Request $request, $nik_nip){
+
+        $request->validate([
+            'password' => ['required','min:8','string','confirmed'],
+        ]);
+
+        $currentPassword = auth()->user()->password;
+        $old_password = request('old_password');
+
+        if(FacadesHash::check($old_password,$currentPassword)){
+            auth()->user()->update([
+                'password'=> bcrypt(request('password')),
+            ]);
+            return back()->with('success','Berhasil mengubah password');
+        }else{
+            return back()->with('errors','isi password lama Anda');
+        }
+        // $user = User::find(Auth::user()->nik_nip);
+        // $user->update($request->all());
+        // return redirect('/profile/{nik_nip}')->with('update','Profil berhasil diupdate');
+    }
 }
+
+
 

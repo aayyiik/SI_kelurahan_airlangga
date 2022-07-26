@@ -15,18 +15,23 @@ class Cek_login
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next, $jabatans)
+    public function handle(Request $request, Closure $next, ...$jabatans)
     {
-        if(!Auth::check()){
-            return redirect('login');
-        }
-        $user = Auth::user();
 
-        if($user->id_jabatan == $jabatans){
+        if(in_array($request->user()->id_jabatan,$jabatans)){
             return $next($request);
         }
+        return redirect('/');
+        // if(!Auth::check()){
+        //     return redirect('login');
+        // }
+        // $user = Auth::user();
 
-        return redirect('login')->with('error',"Anda tidak memiliki akses masuk");
+        // if($user->id_jabatan == $jabatans){
+        //     return $next($request);
+        // }
+
+        // return redirect('login')->with('error',"Anda tidak memiliki akses masuk");
        
     }
 

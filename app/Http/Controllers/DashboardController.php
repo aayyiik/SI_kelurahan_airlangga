@@ -23,9 +23,9 @@ class DashboardController extends Controller
 
         
 
-        $internal = Kegiatan::where('kategori','=','1')->orderBy('tanggal','desc')->paginate(10);
+        $internal = Kegiatan::where('kategori','=','1')->orderBy('tanggal','desc')->get();
        
-        $eksternal = Kegiatan::where('kategori','=','2')->orderBy('tanggal','desc')->paginate(10);
+        $eksternal = Kegiatan::where('kategori','=','2')->orderBy('tanggal','desc')->get();
 
         return view('dashboard.admin.home.home',compact('pns','non_pns','internal','eksternal','berjalan','selesai'));
     }
@@ -34,7 +34,7 @@ class DashboardController extends Controller
         $internal = Kegiatan::where('kategori','=','1')->get();
         $eksternal = Kegiatan::where('kategori','=','2')->get();
 
-        return view('dashboard.pegawai.home.home',compact('pns','non_pns','internal','eksternal','berjalan','selesai'));
+        return view('dashboard.pegawai.home.home',compact('internal','eksternal'));
     }
 
 }

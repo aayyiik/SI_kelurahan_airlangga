@@ -36,8 +36,9 @@
         <div id="content-wrapper" class="d-flex flex-column">
 
           @include('templates.layouts.top_nav')
+          
             <!-- Main Content -->
-     
+            
                 <!-- Begin Page Content -->
                    <div class="content">
                         <div class="container-fluid">

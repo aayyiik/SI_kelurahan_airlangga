@@ -1,14 +1,13 @@
 @extends('templates.master')
 @section('content')
 
-                <main id="main" class="main">
-
-                    <!-- Page Heading -->
+       <main id="main" class="main">
+          <!-- Page Heading -->
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
                         <li class="breadcrumb-item">Pages</li>
                         <li class="breadcrumb-item active">Aktiviitas</li>
-                      </ol>
+                    </ol>
 
                       <!-- Alert notifikasi -->
                         @if ($message = Session::get('sukses'))
@@ -34,16 +33,16 @@
                         @endif
 
                         <div class="col-lg-12 mb-4">
-                            <div class="card bg-success text-white shadow">
+                            <div class="card bg-primary text-white shadow">
                                 <div class="card-body">
                                     <p>
-                                        NAMA 
+                                        NAMA    : {{ Auth::user()->nama }}
                                     </p>
                                     <p>
-                                        NIP
+                                        NIP     : {{ Auth::user()->nik_nip }}
                                     </p>
                                     <p>
-                                        JABATAN
+                                        JABATAN : {{ Auth::user()->jabatan->nama_jabatan }}
                                     </p>
                                 </div>
                             </div>
@@ -54,12 +53,19 @@
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">Aktivitas Hari ini</h6>
+
+                            {{-- authentitakasi tambah data untuk pegawai --}}
+                            @if(auth()->user()->id_jabatan !='14')
                             <a href="" class="btn btn-primary btn-sm float-right" data-toggle="modal" data-target="#Medium-modal" type="button">
                                 Tambah Data
                             </a>
+                            @endif
+                            {{-- endauth --}}
+
                         </div>
+                        
                         <div class="card-body">
-                            <div class="table-responsive">
+                         <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
@@ -69,6 +75,7 @@
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
+                                @if(auth()->user()->id_jabatan == '14')
                                     @php $no = 1; @endphp
                                     @foreach ($aktivitas as $item)
                                     <tbody>
@@ -85,9 +92,32 @@
                                         </tr>
 
                                     </tbody>
-                                    @endforeach
+                                  @endforeach
+
+                                    @else
+
+                                    @php $no = 1; @endphp
+                                    @foreach ($lihatAktivitas as $item)
+                                    <tbody>
+                                        <tr>
+                                            <td>{{ $no++ }}</td>
+                                            <td>{{ $item->nama_aktivitas }}</td>
+                                            <td>
+                                              <img src="{{ asset('assets/img/log/'.$item->foto) }}" width="100px" height="100px" alt="image">
+                                            </td>
+                                            <td>
+                                                <a href="/log_aktivitas/{{ $item->id_aktivitas }}/edit" class="btn-sm btn-warning "><i class="fas fa-fw fa-edit"></i></a>
+                                                <a href="/log_aktivitas/{{ $item->id_aktivitas }}/delete" class="btn-sm btn-danger "><i class="fas fa-fw fa-trash"></i></a>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                  @endforeach
+                                  @endif
                                 </table>
                             </div>
+                          
+                        
                         </div>
                     </div>
                 </main>
