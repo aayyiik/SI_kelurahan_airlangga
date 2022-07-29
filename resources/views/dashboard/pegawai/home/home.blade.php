@@ -24,7 +24,7 @@
             </div>
             <div class="card-body">
               <div class="table-responsive">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered" id="dataTable">
                         <thead>
                             <tr>
                                 <th>No</th>
@@ -41,7 +41,7 @@
                             <tr>
                                 <td>{{ $no++ }}</td>
                                 <td>{{ $item->nama_kegiatan }}</td>
-                                <td>{{ $item->tanggal }}</td>
+                                <td>{{ \Carbon\Carbon::parse($item->tanggal)->format('d-m-Y') }}</td>
                                 <td>{{ $item->tempat }}</td>
                                 <td>{{ $item->penyelenggara }}</td>
                                 <td>{{ $item->jenis_peserta }}</td>
@@ -64,7 +64,7 @@
             </div>
             <div class="card-body">
               <div class="table-responsive">
-                    <table class="table table-bordered" >
+                    <table class="table table-bordered" id="dataTable2" >
                         <thead>
                             <tr>
                                 <th>No</th>
@@ -81,7 +81,7 @@
                             <tr>
                                 <td>{{ $no++ }}</td>
                                 <td>{{ $item->nama_kegiatan }}</td>
-                                <td>{{ $item->tanggal }}</td>
+                                <td>{{ \Carbon\Carbon::parse($item->tanggal)->format('d-m-Y') }}</td>
                                 <td>{{ $item->tempat }}</td>
                                 <td>{{ $item->penyelenggara }}</td>
                                 <td>{{ $item->jenis_peserta }}</td>

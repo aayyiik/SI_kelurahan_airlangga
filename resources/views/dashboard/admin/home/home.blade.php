@@ -105,7 +105,7 @@
                             <tr>
                                 <td>{{ $no++ }}</td>
                                 <td>{{ $item->nama_kegiatan }}</td>
-                                <td>{{ $item->tanggal }}</td>
+                                <td>{{ \Carbon\Carbon::parse($item->tanggal)->format('d-m-Y') }}</td>
                                 <td>{{ $item->tempat }}</td>
                                 <td>{{ $item->penyelenggara }}</td>
                                 <td>{{ $item->jenis_peserta }}</td>
@@ -151,7 +151,7 @@
                             <tr>
                                 <td>{{ $no++ }}</td>
                                 <td>{{ $item->nama_kegiatan }}</td>
-                                <td>{{ $item->tanggal }}</td>
+                                <td>{{ \Carbon\Carbon::parse($item->tanggal)->format('d-m-Y') }}</td>
                                 <td>{{ $item->tempat }}</td>
                                 <td>{{ $item->penyelenggara }}</td>
                                 <td>{{ $item->jenis_peserta }}</td>

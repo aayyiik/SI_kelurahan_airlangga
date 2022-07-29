@@ -16,6 +16,8 @@ class Jabatan extends Model
     ];
 
     public function user() {
-        return $this->hasMany(User::class,'nik');
+        return $this->hasMany(User::class,'nik_nip');
     }
+
+   
 }

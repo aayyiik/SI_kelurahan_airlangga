@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\Kegiatan;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class KegiatanController extends Controller
 {
@@ -28,7 +29,16 @@ class KegiatanController extends Controller
 
         ]);
 
-        Kegiatan::create($request->all());
+        $kegiatan = new Kegiatan;
+        $kegiatan->no_admin = Auth::user()->nik_nip;
+        $kegiatan->nama_kegiatan = $request->input('nama_kegiatan');
+        $kegiatan->penyelenggara = $request->input('penyelenggara');
+        $kegiatan->jenis_peserta = $request->input('jenis_peserta');
+        $kegiatan->kategori = $request->input('kategori');
+        $kegiatan->tempat = $request->input('tempat');
+        $kegiatan->tanggal = '2022-10-10';
+        $kegiatan->save();
+
         return redirect ('/daftar_kegiatan')->with('sukses','Data Berhasil Diinput');
        
         // return redirect('/daftar_kegiatan');

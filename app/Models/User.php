@@ -60,6 +60,8 @@ class User extends Authenticatable
     }
 
     public function aktivitas() {
-        return $this->hasMany(Aktivitas::class,'id_aktivitas');
+        return $this->hasMany(Aktivitas::class,'id_aktivitas','nik_nip');
     }
+
+  
 }

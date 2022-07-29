@@ -27,6 +27,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/login',[AuthController::class,'login'])->name('login');
+Route::post('/postlogin',[AuthController::class,'postlogin'])->name('postlogin');
+Route::get('/logout',[AuthController::class,'logout']);
+
+
+Route::get('/dashboard',[DashboardController::class,'dashboardPegawaidanMasyarakat']);
+
+
 Route::group(['middleware'=>['auth','cek_login:14']], function(){
     
     Route::get('/dashboardAdmin',[DashboardController::class,'dashboardAdmin']);
@@ -55,6 +63,10 @@ Route::get('log_aktivitas/{id_aktivitas}/edit',[AktivitasController::class,'edit
 Route::post('log_aktivitas/{id_aktivitas}/update',[AktivitasController::class,'update']);
 Route::get('log_aktivitas/{id_aktivitas}/delete',[AktivitasController::class,'delete']);
 
+Route::get('/print_aktivitas',[AktivitasController::class,'print_aktivitas']);
+Route::get('/display_laporan',[AktivitasController::class,'displayLaporan']);
+Route::get('/cetak_laporan/{tgl_awal}/{tgl_akhir}',[AktivitasController::class,'store']);
+
 
 Route::get('profile/{nik_nip}',[UserController::class,'setting_profil']);
 Route::post('profile/{nik_nip}/update',[UserController::class,'profil_update']);
@@ -65,12 +77,6 @@ Route::post('change_password/{nik_nip}/update',[UserController::class,'password_
 });
 
 
-Route::get('/login',[AuthController::class,'login']);
-Route::post('/postlogin',[AuthController::class,'postlogin'])->name('postlogin');
-Route::get('/logout',[AuthController::class,'logout']);
-
-
-Route::get('/dashboard',[DashboardController::class,'dashboardPegawaidanMasyarakat']);
 
 // //Jabatan
 // Route::get('/jabatan',[JabatanController::class,'index']);

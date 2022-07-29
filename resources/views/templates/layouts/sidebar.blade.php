@@ -1,12 +1,12 @@
         <!-- Sidebar -->
 
-    
-            <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
-   
-
-        
-
-          <!-- Sidebar - Brand -->
+       
+        <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
+            
+     
+            {{-- <ul class="navbar-nav bg-gradient-admin sidebar sidebar-dark accordion" id="accordionSidebar"> --}}
+             
+         <!-- Sidebar - Brand -->
           <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
               <div class="logo d-flex align-items-center" >
                 <img src="{{ asset('assets/img/logo.png') }}" alt="" widht="40" height="50">
@@ -19,11 +19,7 @@
     
           <!-- Divider -->
           <hr class="sidebar-divider my-0">
-
-          
-          
-            
-          <!-- Nav Item - Dashboard -->
+         <!-- Nav Item - Dashboard -->
           @if(!Auth::user())
 
           <li class="nav-item">
@@ -57,6 +53,11 @@
                 <a class="nav-link" href="/log_aktivitas">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span><strong>Log Aktivitas</strong></span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/display_laporan">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span><strong>Print Laporan Aktivitas</strong></span></a>
             </li>
 
         @if(Auth::user()->id_jabatan == '14')

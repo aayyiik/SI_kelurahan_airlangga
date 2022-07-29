@@ -64,7 +64,7 @@
                         <tr>
                             <td>{{ $no++ }}</td>
                             <td>{{ $item->nama_kegiatan }}</td>
-                            <td>{{ $item->tanggal}}</td>
+                            <td>{{ \Carbon\Carbon::parse($item->tanggal)->format('d-m-Y') }}</td>
                             <td>{{ $item->tempat }}</td>
                           @if ($item->kategori == 1)
                             <td>Kegiatan Internal/Dalam Kelurahan</td>
@@ -116,7 +116,7 @@
               <div class="form-group row">
                 <label class="col-sm-12 col-md-4 col-form-label">Nama Admin</label>
                 <div class="col-sm-12 col-md-12">
-                  <input class="form-control {{ $errors->has('no_admin') ? ' is-invalid' : '' }}" type="text" name="no_admin" placeholder="Masukkan Nama Jabatan">
+                  <input class="form-control {{ $errors->has('no_admin') ? ' is-invalid' : '' }}" type="text" name="no_admin" value="{{ Auth::user()->nik_nip }} - {{ Auth::user()->nama }}" placeholder="Masukkan Nama Jabatan" disabled="">
                   @if($errors->has('no_admin'))
                     <span class="invalid-feedback">{{ $errors->first('no_admin') }}</span>
                   @endif

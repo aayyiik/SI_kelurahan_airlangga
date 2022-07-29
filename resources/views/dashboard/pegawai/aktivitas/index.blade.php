@@ -31,7 +31,7 @@
                             <strong>{{ $message }}</strong>
                             </div>
                         @endif
-
+{{-- 
                         <div class="col-lg-12 mb-4">
                             <div class="card bg-primary text-white shadow">
                                 <div class="card-body">
@@ -44,9 +44,12 @@
                                     <p>
                                         JABATAN : {{ Auth::user()->jabatan->nama_jabatan }}
                                     </p>
+
                                 </div>
                             </div>
                         </div>
+
+                       --}}
 
 
                      <!-- DataTales Example -->
@@ -66,10 +69,11 @@
                         
                         <div class="card-body">
                          <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered" width="100%" cellspacing="0" id="dataTable">
                                     <thead>
                                         <tr>
                                             <th>No</th>
+                                            <th>Tanggal</th>
                                             <th>Nama Aktivitas</th>
                                             <th>Foto Aktivitas</th>
                                             <th>Aksi</th>
@@ -81,6 +85,7 @@
                                     <tbody>
                                         <tr>
                                             <td>{{ $no++ }}</td>
+                                            <td>{{ \Carbon\Carbon::parse($item->tanggal)->format('d-m-Y') }}</td>
                                             <td>{{ $item->nama_aktivitas }}</td>
                                             <td>
                                               <img src="{{ asset('assets/img/log/'.$item->foto) }}" width="100px" height="100px" alt="image">
@@ -90,17 +95,19 @@
                                                 <a href="/log_aktivitas/{{ $item->id_aktivitas }}/delete" class="btn-sm btn-danger "><i class="fas fa-fw fa-trash"></i></a>
                                             </td>
                                         </tr>
-
+                                        @endforeach
                                     </tbody>
-                                  @endforeach
+                                
 
                                     @else
 
                                     @php $no = 1; @endphp
-                                    @foreach ($lihatAktivitas as $item)
+                                    
                                     <tbody>
+                                      @foreach ($lihatAktivitas as $item)
                                         <tr>
                                             <td>{{ $no++ }}</td>
+                                            <td>{{ \Carbon\Carbon::parse($item->tanggal)->format('d-m-Y H:i:s') }}</td>
                                             <td>{{ $item->nama_aktivitas }}</td>
                                             <td>
                                               <img src="{{ asset('assets/img/log/'.$item->foto) }}" width="100px" height="100px" alt="image">
@@ -110,15 +117,17 @@
                                                 <a href="/log_aktivitas/{{ $item->id_aktivitas }}/delete" class="btn-sm btn-danger "><i class="fas fa-fw fa-trash"></i></a>
                                             </td>
                                         </tr>
-
+                                        @endforeach
                                     </tbody>
-                                  @endforeach
+                                  
                                   @endif
                                 </table>
+                             
                             </div>
                           
                         
                         </div>
+                        
                     </div>
                 </main>
 
@@ -136,30 +145,32 @@
         <div class="modal-body">
           <form action="/log_aktivitas/create" method="POST" enctype="multipart/form-data">
             @csrf
+
+            
+            <div class="form-group row">
+              <label class="col-sm-12 col-md-4 col-form-label">Nama Pegawai</label>
+              <div class="col-sm-12 col-md-12">
+                <input class="form-control" type="text" name="no_pegawai" value="{{ Auth::user()->nik_nip }} - {{ Auth::user()->nama }}" readonly>
+              </div>
+            </div>
+
+          
               <div class="form-group row">
                 <label class="col-sm-12 col-md-4 col-form-label">Nama Aktivitas</label>
                 <div class="col-sm-12 col-md-12">
-                  <input class="form-control" type="text" name="nama_aktivitas" placeholder="Masukkan Deskripsi Aktivitas">
+                  <input class="form-control" type="text" name="nama_aktivitas"  placeholder="Masukkan Deskripsi Aktivitas" required="" >
                 </div>
               </div>
 
               <div class="form-group row">
-                <label class="col-sm-12 col-md-4 col-form-label">Nama Pegawai</label>
+                <label class="col-sm-12 col-md-4 col-form-label">Tanggal</label>
                 <div class="col-sm-12 col-md-12">
-                  <input class="form-control" type="text" name="no_pegawai" placeholder="Masukkan Nama Pegawai">
+                  <input class="form-control" type="datetime-local" name="tanggal" value="{{ Auth::user()->nik_nip }} - {{ Auth::user()->nama }}"  placeholder="Masukkan Nama Pegawai" disable="">
                 </div>
               </div>
-{{-- 
-              <div class="form-group">
-                <label>Foto aktivitas</label>
-                <div class="custom-file">
-                    <input type="file" name="foto" class="custom-file-input">
-                    <label class="custom-file-label">Pilih</label>
-                </div>
-                </div> --}}
            
-                <label class="form-label" for="customFile">File Aktivitas</label>
-                  <input type="file" class="form-control" id="customFile" name="foto" />
+                <label class="form-label" for="customFile">Foto Aktivitas (JPG, PNG, JPEG)</label>
+                  <input type="file" class="form-control" id="customFile" name="foto" required=""/>
   
             </div> 
         <div class="modal-footer">

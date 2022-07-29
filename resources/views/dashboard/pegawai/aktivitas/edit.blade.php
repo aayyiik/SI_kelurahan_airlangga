@@ -21,29 +21,29 @@
                             <div class="form-group row">
                                 <label class="col-sm-12 col-md-2 col-form-label">Nama Admin</label>
                                 <div class="col-sm-12 col-md-10">
-                                    <input class="form-control" type="text" name="no_pegawai" value="{{ $log->no_pegawai }}">
+                                    <input class="form-control" type="text" name="no_pegawai" value="{{ $log->no_pegawai }}" required="" readonly>
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label class="col-sm-12 col-md-2 col-form-label">Nama aktivitas</label>
                                 <div class="col-sm-12 col-md-10">
-                                    <input class="form-control" type="text" name="nama_aktivitas" value="{{ $log->nama_aktivitas }}">
+                                    <input class="form-control" type="text" name="nama_aktivitas" value="{{ $log->nama_aktivitas }}" required="">
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label class="col-sm-12 col-md-2 col-form-label">Tanggal</label>
                                 <div class="col-sm-12 col-md-10">
-                                    <input class="form-control" type="text" name="tanggal" value="{{ $log->tanggal }}">
+                                    <input class="form-control" type="datetime-local" name="tanggal" value="{{ $log->tanggal }}" required="">
                                 </div>
                             </div>
  
                             <div class="form-group row">
                                 <label class="col-sm-12 col-md-2 col-form-label">Foto Aktivitas</label>
                                 <div class="col-sm-12 col-md-10">
-                                    <input class="form-control" type="file" name="foto">
-                                    <img src="{{ asset('assets/img/log/'.$log->foto) }}" width="100px" height="100px" alt="image">
+                                    <input class="form-control" type="file" name="foto" required="">
+                                    <img src="{{ asset('assets/img/log/'.$log->foto) }}" width="100px" height="100px" alt="image" >
                                 </div>
                             </div>
 
