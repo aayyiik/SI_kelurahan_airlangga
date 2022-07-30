@@ -35,31 +35,36 @@
            
         @if(Auth::user())
 
-        @if(Auth::user()->id_jabatan == '14')
-            <li class="nav-item">
-                <a class="nav-link" href="/dashboardAdmin">
-                <i class="icon-copy fa fa-home"></i>
-                <span><strong>Dashboard</strong></span></a>
-            </li>
-        @else
+            @if(Auth::user()->id_jabatan == '14')
+                <li class="nav-item">
+                    <a class="nav-link" href="/dashboardAdmin">
+                    <i class="icon-copy fa fa-home"></i>
+                    <span><strong>Dashboard</strong></span></a>
+                </li>
+            @else
 
-        <li class="nav-item">
-            <a class="nav-link" href="/dashboard">
-              <i class="icon-copy fa fa-home"></i>
-                <span><strong>Dashboard</strong></span></a>
-          </li>
-        @endif
             <li class="nav-item">
-                <a class="nav-link" href="/log_aktivitas">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span><strong>Log Aktivitas</strong></span></a>
+                <a class="nav-link" href="/dashboard">
+                <i class="icon-copy fa fa-home"></i>
+                    <span><strong>Dashboard</strong></span></a>
             </li>
+            @endif
+
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/log_aktivitas">
+                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        <span><strong>Log Aktivitas</strong></span></a>
+                </li>
+            
+            @if(Auth::user()->id_jabatan != '14')
             <li class="nav-item">
                 <a class="nav-link" href="/display_laporan">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span><strong>Print Laporan Aktivitas</strong></span></a>
             </li>
-
+            @endif
+            
         @if(Auth::user()->id_jabatan == '14')
             <li class="nav-item">
                 <a class="nav-link" href="/daftar_pegawai">

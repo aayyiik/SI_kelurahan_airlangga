@@ -44,7 +44,7 @@
                                         
                                         
                                       </div>
-                                      <h5 class="card-title text-center pb-0 fs-4">KELURAHAN AIRLANGGA</h5>
+                                      <h5 class="card-title text-center pb-0 fs-4"><strong>KELURAHAN AIRLANGGA</strong></h5>
                                       @error('login_gagal')
                                       {{-- <span class="invalid-feedback" role="alert">
                                           <strong>{{ $message }}</strong>
@@ -77,7 +77,7 @@
                                             </div>
                                         </div> --}}
                                         {{-- <a href="index.html" class="btn btn-success btn-user btn-block"> --}}
-                                            <input type="submit"  class="btn btn-success btn-lg btn-block">
+                                            <input type="submit"  class="btn btn-primary btn-lg btn-block" value="Masuk">
                                           
                                         </a>
                                         <hr>

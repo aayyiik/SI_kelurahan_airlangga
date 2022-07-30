@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Hash as FacadesHash;
 class UserController extends Controller
 {
     public function index(){
-        $user = User::all();
+        $user = User::orderBy('created_at','asc')->get();
         $jabatan = Jabatan::all();
         $kelurahan = Kelurahan::all();
         return view('dashboard.admin.user.index',['user'=>$user], compact('jabatan','kelurahan'));

@@ -101,8 +101,19 @@
         </div>
   
         <div class="modal-body">
+          <div class="form-group row">
+            <label class="col-sm-12 col-md-4 col-form-label">Nama Admin</label>
+            <div class="col-sm-12 col-md-12">
+              <input class="form-control {{ $errors->has('no_admin') ? ' is-invalid' : '' }}" type="text" name="no_admin" value="{{ Auth::user()->nik_nip }} - {{ Auth::user()->nama }}" placeholder="Masukkan Nama Jabatan" disabled="">
+            </div>
+          </div>
+
           <form action="/daftar_kegiatan/create" method="POST">
             @csrf
+
+              <input class="form-control" type="hidden" name="no_admin" value="{{ Auth::user()->nik_nip }}" placeholder="Masukkan Nama Jabatan" >
+
+
               <div class="form-group row">
                 <label class="col-sm-12 col-md-4 col-form-label">Nama Kegiatan</label>
                 <div class="col-sm-12 col-md-12">
@@ -111,16 +122,6 @@
                     <span class="invalid-feedback">{{ $errors->first('nama_kegiatan') }}</span>
                   @endif
                 </div>  
-              </div>
-
-              <div class="form-group row">
-                <label class="col-sm-12 col-md-4 col-form-label">Nama Admin</label>
-                <div class="col-sm-12 col-md-12">
-                  <input class="form-control {{ $errors->has('no_admin') ? ' is-invalid' : '' }}" type="text" name="no_admin" value="{{ Auth::user()->nik_nip }} - {{ Auth::user()->nama }}" placeholder="Masukkan Nama Jabatan" disabled="">
-                  @if($errors->has('no_admin'))
-                    <span class="invalid-feedback">{{ $errors->first('no_admin') }}</span>
-                  @endif
-                </div>
               </div>
 
               <div class="form-group row">
@@ -183,11 +184,17 @@
               <label class="col-sm-12 col-md-4 col-form-label">Deskripsi</label>
               <div class="col-sm-12 col-md-12">
                 <textarea class="textarea_editor form-control border-radius-0 {{ $errors->has('deskripsi') ? ' is-invalid' : '' }}" name="deskripsi" placeholder="Masukkan Deskripsi"></textarea>
-                  @if($errors->has('deskripsi'))
-                    <span class="invalid-feedback">{{ $errors->first('deskripsi') }}</span>
-                  @endif
+                  
               </div>
             </div>  
+
+            <div class="form-group">
+              <label for="exampleFormControlTextarea3">Deskripsi</label>
+              <textarea name="deskripsi" class="form-control {{ $errors->has('deskripsi') ? ' is-invalid' : '' }}" id="exampleFormControlTextarea3" rows="7"></textarea>
+              @if($errors->has('deskripsi'))
+                    <span class="invalid-feedback">{{ $errors->first('deskripsi') }}</span>
+              @endif
+            </div>
 
   
             </div> 

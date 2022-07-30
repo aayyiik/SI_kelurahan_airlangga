@@ -16,42 +16,36 @@ class UsersSeeder extends Seeder
     {
         $user = [
             [
-                'nik_nip'=>'198503302003121002',
+                'nik_nip'=>'196601021991031013',
                 'id_jabatan'=> '1',
                 'id_kelurahan'=> '1',
-                'nama'=>'Sugeng',
+                'nama'=>'Sugeng Harijono, SH, MH',
                 'jenis_kelamin' => '1',
                 'alamat'=>'Jl. dharmawangsa No 09',
-                'no_telp'=> '085853427882',
-                'email'=> 'sugeng@gmail.com',
                 'status' => '1',
-                'password'=> bcrypt('lurah123'),
+                'password'=> bcrypt('196601021991031013'),
 
             ],
             [
-                'nik_nip'=>'1985033020023447353',
-                'id_jabatan'=> '6',
+                'nik_nip'=>'196901232009012001',
+                'id_jabatan'=> '2',
                 'id_kelurahan'=> '1',
-                'nama'=>'Djayadi',
+                'nama'=>'Dinar Prabandari, S.Sos',
                 'jenis_kelamin'=>'1',
                 'alamat'=>'Jl. dharmawangsa No 08',
-                'no_telp'=> '085853427222',
-                'email'=> 'djay@gmail.com',
                 'status'=>'1',
-                'password'=> bcrypt('staff123'),
+                'password'=> bcrypt('196901232009012001'),
                 
             ],
             [
-                'nik_nip'=>'3578274254327663',
-                'id_jabatan'=> '12',
+                'nik_nip'=>'3578276501020001',
+                'id_jabatan'=> '14',
                 'id_kelurahan'=> '1',
-                'nama'=>'Apri',
+                'nama'=>'Ari Syadzilliyah Syaihu Febryansyah',
                 'jenis_kelamin'=>'1',
                 'alamat'=>'Jl. dharmawangsa No 04',
-                'no_telp'=> '0858534255342',
-                'email'=> 'apri@gmail.com',
                 'status'=>'2',
-                'password'=> bcrypt('pegawai123'),
+                'password'=> bcrypt('3578276501020001'),
             ],
         ];
         foreach ($user as $key => $value) {

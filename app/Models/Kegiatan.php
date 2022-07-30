@@ -24,7 +24,7 @@ class Kegiatan extends Model
     ];
 
     public function user() {
-        return $this->hasMany(User::class,'nik_nip');
+        return $this->belongsTo(User::class,'no_admin','nik_nip','nama');
     }
 
 

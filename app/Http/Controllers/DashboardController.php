@@ -31,9 +31,11 @@ class DashboardController extends Controller
     }
 
     public function dashboardPegawaidanMasyarakat(){
-        $internal = Kegiatan::where('kategori','=','1')->get();
-        $eksternal = Kegiatan::where('kategori','=','2')->get();
-
+        
+        $internal = Kegiatan::where('kategori','=','1')->orderBy('tanggal','desc')->get();
+       
+        $eksternal = Kegiatan::where('kategori','=','2')->orderBy('tanggal','desc')->get();
+        
         return view('dashboard.pegawai.home.home',compact('internal','eksternal'));
     }
 

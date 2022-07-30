@@ -76,7 +76,9 @@
                                             <th>Tanggal</th>
                                             <th>Nama Aktivitas</th>
                                             <th>Foto Aktivitas</th>
-                                            <th>Aksi</th>
+                                            @if(auth()->user()->id_jabatan !='14')
+                                              <th>Aksi</th>
+                                            @endif
                                         </tr>
                                     </thead>
                                 @if(auth()->user()->id_jabatan == '14')
@@ -90,10 +92,12 @@
                                             <td>
                                               <img src="{{ asset('assets/img/log/'.$item->foto) }}" width="100px" height="100px" alt="image">
                                             </td>
-                                            <td>
-                                                <a href="/log_aktivitas/{{ $item->id_aktivitas }}/edit" class="btn-sm btn-warning "><i class="fas fa-fw fa-edit"></i></a>
-                                                <a href="/log_aktivitas/{{ $item->id_aktivitas }}/delete" class="btn-sm btn-danger "><i class="fas fa-fw fa-trash"></i></a>
-                                            </td>
+                                            @if(auth()->user()->id_jabatan !='14')
+                                              <td>
+                                                  <a href="/log_aktivitas/{{ $item->id_aktivitas }}/edit" class="btn-sm btn-warning "><i class="fas fa-fw fa-edit"></i></a>
+                                                  <a href="/log_aktivitas/{{ $item->id_aktivitas }}/delete" class="btn-sm btn-danger "><i class="fas fa-fw fa-trash"></i></a>
+                                              </td>
+                                            @endif
                                         </tr>
                                         @endforeach
                                     </tbody>

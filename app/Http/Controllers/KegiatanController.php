@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 class KegiatanController extends Controller
 {
     public function index(){
-        $kegiatan = Kegiatan::orderBy('created_at','desc')->get();
+        $kegiatan = Kegiatan::orderBy('tanggal','desc')->get();
         $user = User::all();
         return view ('dashboard.admin.kegiatan.index',['kegiatan'=>$kegiatan], compact('user',));
     }
@@ -47,7 +47,8 @@ class KegiatanController extends Controller
 
     public function edit ($id_kegiatan){
         $kegiatan = Kegiatan::find($id_kegiatan);
-        return view('dashboard.admin.kegiatan.edit',['kegiatan' => $kegiatan]);
+        $user = User::all();
+        return view('dashboard.admin.kegiatan.edit',['kegiatan' => $kegiatan], compact('user'));
     }
 
     public function update (Request $request,$id_kegiatan){

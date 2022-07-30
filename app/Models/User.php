@@ -58,9 +58,14 @@ class User extends Authenticatable
     public function kelurahan() {
         return $this->belongsTo(Kelurahan::class, 'id_kelurahan');
     }
+    
 
     public function aktivitas() {
         return $this->hasMany(Aktivitas::class,'id_aktivitas','nik_nip');
+    }
+
+    public function kegiatan() {
+        return $this->hasMany(Kegiatan::class,'id_kegiatan','no_admin');
     }
 
   

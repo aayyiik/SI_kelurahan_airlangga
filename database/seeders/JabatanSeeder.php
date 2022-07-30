@@ -67,7 +67,7 @@ class JabatanSeeder extends Seeder
         ]);
 
         Jabatan::create([
-            'nama_jabatan' => 'admin'
+            'nama_jabatan' => 'Admin'
         ]);
 
         

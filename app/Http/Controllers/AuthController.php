@@ -35,7 +35,7 @@ class AuthController extends Controller
 
         return redirect('login')
         ->withInput()
-        ->withErrors(['login_gagal' => 'These credentials do not match our records.']);
+        ->withErrors(['login_gagal' => 'Username / Password Tidak Sesuai']);
     
         }
 
