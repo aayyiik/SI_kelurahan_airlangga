@@ -64,26 +64,26 @@
                         <td>{{ $no++ }}</td>
                         <td>{{ $display->nama_aktivitas }}</td>
                         <td>{{ \Carbon\Carbon::parse($display->tanggal)->format('d-m-Y') }}</td>
-                        <td><img src="{{ asset('assets/img/log/'.$display->foto) }}" width="100px" height="100px" alt="image"></td>
+                        <td><img src="{{ asset('assets/img/log/'.$display->foto) }}" width="120px" height="120px" alt="image"></td>
                     </tr>
                     @endforeach
                 </tbody>
                 @endif
             
           </table>
-          <br>
 
           <table style="width: 100%" >
             <tr>
                 <td colspan="3">Surabaya, {{ $tanggal }}</td>
-                <br>
             </tr>
             <tr>
+               <br>
                 <th style="text-align: center">Yang Melaporkan,</th>
-              
+           
                 <th></th>
                 <th style="text-align: center">Sekretaris Kelurahan</th>
             </tr>
+            <tr></tr>
             <tr>
                 <td>
                     <br>
@@ -105,6 +105,7 @@
                     <br>
                     <br>
                     <br>
+                    <br>
                     @foreach ($sekretaris as $item)
                     <p style="text-align: center"> 
                         {{ $item->user->nama }}
@@ -119,7 +120,9 @@
                     @endforeach
                 </td>
             </tr>
-            <tr></tr>
+            <tr>
+                <br>
+            </tr>
             <tr>
                 <th colspan="3" style="text-align: center" >Lurah</th>
             </tr>

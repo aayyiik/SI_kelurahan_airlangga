@@ -32,42 +32,42 @@
                             <div class="form-group row">
                                 <label class="col-sm-12 col-md-2 col-form-label">Nama kegiatan</label>
                                 <div class="col-sm-12 col-md-10">
-                                    <input class="form-control" type="text" name="nama_kegiatan" value="{{ $kegiatan->nama_kegiatan }}">
+                                    <input class="form-control" type="text" name="nama_kegiatan" value="{{ $kegiatan->nama_kegiatan }}" required="">
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label class="col-sm-12 col-md-2 col-form-label">Tanggal</label>
                                 <div class="col-sm-12 col-md-10">
-                                    <input class="form-control" type="datetime-local" name="tanggal" value="{{ $kegiatan->tanggal }}">
+                                    <input class="form-control" type="datetime-local" name="tanggal" value="{{ $kegiatan->tanggal }}" required="">
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label class="col-sm-12 col-md-2 col-form-label">Penyelenggara</label>
                                 <div class="col-sm-12 col-md-10">
-                                    <input class="form-control" type="text" name="penyelenggara" value="{{ $kegiatan->penyelenggara }}">
+                                    <input class="form-control" type="text" name="penyelenggara" value="{{ $kegiatan->penyelenggara }}" required="">
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label class="col-sm-12 col-md-2 col-form-label">Jenis Peserta</label>
                                 <div class="col-sm-12 col-md-10">
-                                    <input class="form-control" type="text" name="jenis_peserta" value="{{ $kegiatan->jenis_peserta }}">
+                                    <input class="form-control" type="text" name="jenis_peserta" value="{{ $kegiatan->jenis_peserta }}" required="">
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label class="col-sm-12 col-md-2 col-form-label">Tempat</label>
                                 <div class="col-sm-12 col-md-10">
-                                    <input class="form-control" type="text" name="tempat" value="{{ $kegiatan->tempat }}">
+                                    <input class="form-control" type="text" name="tempat" value="{{ $kegiatan->tempat }}" required="">
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label class="col-sm-12 col-md-2 col-form-label">Kategori</label>
                                 <div class="col-sm-12 col-md-10">
-                                    <select class="custom-select col-12" name="kategori">
+                                    <select class="custom-select col-12" name="kategori" required="">
                                             <option value="1" {{($kegiatan->kategori ==1) ? 'selected' : ''}} >Kegiatan Internal/Dalam Kelurahan</option>
                                             <option value="2"{{($kegiatan->kategori ==2) ? 'selected' : ''}}>Kegiatan Eksternal/Luar</option>
                                     </select>
@@ -80,7 +80,6 @@
                                     <textarea name="deskripsi" class="form-control " id="exampleFormControlTextarea3" rows="5" >{{ $kegiatan->deskripsi }}</textarea>
                                 </div>
                             </div>
-
 
                             <button type="submit" class="btn btn-primary float-right">Perbarui</button>
                         </form>

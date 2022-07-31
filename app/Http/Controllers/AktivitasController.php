@@ -32,19 +32,7 @@ class AktivitasController extends Controller
     }
 
     public function create (Request $request){
-        
-        // $foto = $request->file('foto')->getClientOriginalName();
-        // $request->file('foto')->store('public/assets/img/log/');
-
-        // $log = new Aktivitas();
-        // $log->no_pegawai = $request['no_pegawai'];
-        // $log->nama_aktivitas = $request['nama_aktivitas'];
-        // $log->tanggal = '2022-10-10';
-        // $log->foto = $foto;
-
-        
-        // $log->save();
-
+ 
         $log = new Aktivitas;
         $log->no_pegawai = Auth::user()->nik_nip;
         $log->nama_aktivitas = $request->input('nama_aktivitas');

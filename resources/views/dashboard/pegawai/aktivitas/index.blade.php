@@ -90,7 +90,7 @@
                                             <td>{{ \Carbon\Carbon::parse($item->tanggal)->format('d-m-Y') }}</td>
                                             <td>{{ $item->nama_aktivitas }}</td>
                                             <td>
-                                              <img src="{{ asset('assets/img/log/'.$item->foto) }}" width="100px" height="100px" alt="image">
+                                              <img src="{{ asset('assets/img/log/'.$item->foto) }}" width="120px" height="120px" alt="image">
                                             </td>
                                             @if(auth()->user()->id_jabatan !='14')
                                               <td>

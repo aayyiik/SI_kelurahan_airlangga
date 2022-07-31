@@ -38,8 +38,8 @@
                 </div>
 
 
-                <button type="submit" class="btn btn-default">Search</button>
-                <a class="btn btn-info" href="">Clear</a>
+                <button type="submit" class="btn btn-default">Cari</button>
+                <a class="btn btn-info" href="">Reset</a>
             </form>
         </div>
     </div>
@@ -56,21 +56,21 @@
     <div class="form-group row">
         <label class="col-sm-12 col-md-4 col-form-label">Tanggal Mulai</label>
         <div class="col-sm-12 col-md-12">
-          <input class="form-control" type="date" name="tgl_mulai"  placeholder="Masukkan Deskripsi Aktivitas">
+          <input class="form-control" type="date" name="tgl_mulai"  placeholder="Masukkan tanggal mulai aktivitas pada bulan yang akan dicetak" required="">
         </div>
     </div>
     
     <div class="form-group row">
         <label class="col-sm-12 col-md-4 col-form-label">Nomor</label>
         <div class="col-sm-12 col-md-12">
-          <input class="form-control" type="text" name="nomor"  placeholder="Masukkan Deskripsi Aktivitas">
+          <input class="form-control" type="text" name="nomor"  placeholder="Masukkan Nomor" required="">
         </div>
     </div>
 
     <div class="form-group row">
         <label class="col-sm-12 col-md-4 col-form-label">Bulan</label>
         <div class="col-sm-12 col-md-12">
-          <input class="form-control" type="text" name="bulan"  placeholder="Masukkan Deskripsi Aktivitas">
+          <input class="form-control" type="text" name="bulan"  placeholder="Masukkan Bulan Aktivitas yang ingin dicetak" required="">
         </div>
     </div>
       
@@ -111,7 +111,7 @@
                                     <td>{{ $display->id_aktivitas }}</td>
                                     <td>{{ $display->nama_aktivitas }}</td>
                                     <td>{{ $display->tanggal }}</td>
-                                    <td><img src="{{ asset('assets/img/log/'.$display->foto) }}" width="100px" height="100px" alt="image"></td>
+                                    <td><img src="{{ asset('assets/img/log/'.$display->foto) }}" width="120px" height="120px" alt="image"></td>
                                 </tr>
                                 @endforeach
                             </tbody>

@@ -25,7 +25,8 @@ class KegiatanController extends Controller
             'jenis_peserta'=> 'required',
             'kategori'=> 'required',
             'tanggal'=> 'required',
-            'tempat'=> 'required'
+            'tempat'=> 'required',
+            'deskripsi'=>'required'
 
         ]);
 
@@ -36,7 +37,8 @@ class KegiatanController extends Controller
         $kegiatan->jenis_peserta = $request->input('jenis_peserta');
         $kegiatan->kategori = $request->input('kategori');
         $kegiatan->tempat = $request->input('tempat');
-        $kegiatan->tanggal = '2022-10-10';
+        $kegiatan->tanggal = $request->input('tanggal');
+        $kegiatan->deskripsi = $request->input('deskripsi');
         $kegiatan->save();
 
         return redirect ('/daftar_kegiatan')->with('sukses','Data Berhasil Diinput');

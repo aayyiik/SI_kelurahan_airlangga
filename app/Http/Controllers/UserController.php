@@ -7,6 +7,7 @@ use App\Models\Kelurahan;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Rules\MatchOldPassword;
 use Hash;
 use Illuminate\Support\Facades\Hash as FacadesHash;
 
@@ -131,8 +132,14 @@ class UserController extends Controller
 
     public function password_update(Request $request, $nik_nip){
 
+        // $request->validate([
+        //     'password' => ['required',':min8','string','confirmed'],
+        // ]);
+
         $request->validate([
-            'password' => ['required','min:8','string','confirmed'],
+            'old_password' => ['required', new MatchOldPassword],
+            'password' => ['required',':min8','string'],
+            'password_confirmation' => ['same:password'],
         ]);
 
         $currentPassword = auth()->user()->password;
@@ -144,8 +151,11 @@ class UserController extends Controller
             ]);
             return back()->with('success','Berhasil mengubah password');
         }else{
-            return back()->with('errors','isi password lama Anda');
+            return back()->with('errors','isi password lama Anda dengan benar');
         }
+
+        //  User::find(auth()->user()->nik_nip)->update(['password'=> bcrypt($request->password)]);
+        //  return back()->with('success','Berhasil mengubah password');
         // $user = User::find(Auth::user()->nik_nip);
         // $user->update($request->all());
         // return redirect('/profile/{nik_nip}')->with('update','Profil berhasil diupdate');

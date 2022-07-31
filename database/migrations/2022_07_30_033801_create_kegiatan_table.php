@@ -23,7 +23,7 @@ class CreateKegiatanTable extends Migration
             $table->integer('kategori');
             $table->dateTime('tanggal');
             $table->string('tempat')->nullable();
-            $table->string('deskripsi')->nullable();;
+            $table->text('deskripsi',1000)->nullable();;
             $table->timestamps();
         });
     }

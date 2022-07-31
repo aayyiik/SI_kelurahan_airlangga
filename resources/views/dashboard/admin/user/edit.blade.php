@@ -30,14 +30,14 @@
                             <div class="form-group row">
                                 <label class="col-sm-12 col-md-2 col-form-label">NIK/NIP</label>
                                 <div class="col-sm-12 col-md-10">
-                                    <input class="form-control" type="text" name="nik_nip" value="{{ $user->nik_nip }}">
+                                    <input class="form-control" type="text" name="nik_nip" value="{{ $user->nik_nip }}" required="">
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label class="col-sm-12 col-md-2 col-form-label">Status</label>
                                 <div class="col-sm-12 col-md-10">
-                                    <select class="custom-select col-12" name="status">
+                                    <select class="custom-select col-12" name="status" required="">
                                             <option value="1" {{ $user->status == 1 ? 'selected' : '' }} >PNS</option>
                                             <option value="2"{{ $user->status == 2 ? 'selected' : '' }} >Non-PNS</option>
                                     </select>
@@ -47,7 +47,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-12 col-md-2 col-form-label">Jabatan</label>
                                 <div class="col-sm-12 col-md-10">
-                                    <select class="custom-select col-12" name="id_jabatan">
+                                    <select class="custom-select col-12" name="id_jabatan" required="">
                                         @foreach($jabatan as $item)
                                             <option value="{{ $item->id_jabatan }}" {{ $item->id_jabatan == $user->id_jabatan ? 'selected' : '' }}>{{ $item->nama_jabatan }}</option>
                                         @endforeach
