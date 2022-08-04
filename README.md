@@ -11,6 +11,8 @@ Website ini terdiri dari 2 user yaitu, admin dan pegawai. Fitur berisi tentang :
 - Fitur tambah aktivitas, edit aktivitas, hapus aktivitas
 - Fitur ubah profil
 - Fitur ubah password
+- Fitur log in
+- Fitur log out
 
 ## Contributing
 <p>Ari Lathifatul Chusna</p>
