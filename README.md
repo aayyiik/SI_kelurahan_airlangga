@@ -1,5 +1,5 @@
 # Website Kelurahan 
-<p align="center">Dibuat oleh mahasiswa D3 Sistem Informasi UNAIR</p>
+<p align="center">Dibuat oleh mahasiswa Sistem Informasi UNAIR</p>
 
 ## About Laravel
 
