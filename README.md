@@ -37,8 +37,8 @@ Fitur berisi tentang :
 - Fitur log in
 - Fitur log out
 
-- Dikerjakan oleh : 
-<p>Ari Lathifatul Chusna</p> (saya)
+Dikerjakan oleh : 
+<p>Ari Lathifatul Chusna</p>
 <p>Rugayyah Syadziliyah Setiawan</p>
 <p>Alisa Qathrunnada Syaihu</p>
 <p>Rizky Haris Febryanzyah</p>
