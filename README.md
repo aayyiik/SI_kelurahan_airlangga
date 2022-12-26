@@ -38,9 +38,9 @@ Fitur berisi tentang :
 - Fitur log out
 
 Dikerjakan oleh : 
-<p>Ari Lathifatul Chusna</p>
-<p>Rugayyah Syadziliyah Setiawan</p>
-<p>Alisa Qathrunnada Syaihu</p>
-<p>Rizky Haris Febryanzyah</p>
+- <p>Ari Lathifatul Chusna</p>
+- <p>Rugayyah Syadziliyah Setiawan</p>
+- <p>Alisa Qathrunnada Syaihu</p>
+- <p>Rizky Haris Febryanzyah</p>
 
 
