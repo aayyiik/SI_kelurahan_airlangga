@@ -1,6 +1,6 @@
 # Halo semua! 
 
-Project kali ini bernama **Sistem Informasi Kelurahan Airlangga Surabaya**.\
+Project kali ini bagian dari tugas PKL yang kami beri nama **Sistem Informasi Kelurahan Airlangga Surabaya**.\
 Website ini terdiri dari 2 :
 - Homepage : 
 1. Menyediakan informasi segala tentang dokumen kebutuhan di setiap pelayanan yang dibutuhkan masyarakat. 
@@ -37,10 +37,10 @@ Fitur berisi tentang :
 - Fitur log in
 - Fitur log out
 
-Dikerjakan oleh : 
-- <p>Ari Lathifatul Chusna</p>
-- <p>Rugayyah Syadziliyah Setiawan</p>
-- <p>Alisa Qathrunnada Syaihu</p>
-- <p>Rizky Haris Febryanzyah</p>
+Dikerjakan/Tanggung jawab : 
+- <p>Ari Lathifatul Chusna (Web Admin)</p>
+- <p>Rugayyah Syadziliyah Setiawan (Home Page)</p>
+- <p>Alisa Qathrunnada Syaihu (Home Page)</p>
+- <p>Rizky Haris Febryanzyah (Web Admin)</p>
 
 
